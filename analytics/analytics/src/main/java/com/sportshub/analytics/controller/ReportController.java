@@ -5,6 +5,8 @@ import com.sportshub.analytics.model.Report;
 import com.sportshub.analytics.service.ReportService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -59,5 +61,20 @@ public class ReportController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         reportService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/paged")
+    public Page<ReportDTO> getPagedReports(Pageable pageable) {
+        return reportService.getAllPaged(pageable)
+                .map(report -> modelMapper.map(report, ReportDTO.class));
+    }
+    @PostMapping("/monthly")
+    public ResponseEntity<ReportDTO> generateMonthlyReport(
+            @RequestParam int month,
+            @RequestParam int year
+    ) {
+        Report generated = reportService.generateMonthlyReport(month, year);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(modelMapper.map(generated, ReportDTO.class));
     }
 }

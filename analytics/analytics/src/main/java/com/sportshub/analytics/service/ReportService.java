@@ -2,7 +2,14 @@ package com.sportshub.analytics.service;
 
 import com.sportshub.analytics.exception.ResourceNotFoundException;
 import com.sportshub.analytics.model.Report;
+import com.sportshub.analytics.model.RevenueLog;
+import com.sportshub.analytics.model.Statistics;
 import com.sportshub.analytics.repository.ReportRepository;
+import com.sportshub.analytics.repository.RevenueLogRepository;
+import com.sportshub.analytics.repository.StatisticsRepository;
+import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +18,17 @@ import java.util.List;
 public class ReportService {
 
     private final ReportRepository reportRepository;
+    private final RevenueLogRepository revenueLogRepository;
+    private final StatisticsRepository statisticsRepository;
 
-    public ReportService(ReportRepository reportRepository) {
+    public ReportService(
+            ReportRepository reportRepository,
+            RevenueLogRepository revenueLogRepository,
+            StatisticsRepository statisticsRepository
+    ) {
         this.reportRepository = reportRepository;
+        this.revenueLogRepository = revenueLogRepository;
+        this.statisticsRepository = statisticsRepository;
     }
 
     public List<Report> getAll() {
@@ -44,5 +59,31 @@ public class ReportService {
             throw new ResourceNotFoundException("Report", id);
         }
         reportRepository.deleteById(id);
+    }
+
+    public Page<Report> getAllPaged(Pageable pageable) {
+        return reportRepository.findAll(pageable);
+    }
+
+    @Transactional
+    public Report generateMonthlyReport(int month, int year) {
+        List<RevenueLog> logs = revenueLogRepository.findByMonthAndYear(month, year);
+
+        double totalRevenue = logs.stream()
+                .mapToDouble(RevenueLog::getAmount)
+                .sum();
+
+        Report report = new Report("REVENUE");
+        Report savedReport = reportRepository.save(report);
+
+        Statistics statistics = new Statistics(
+                savedReport,
+                "MONTHLY_REVENUE_" + month + "_" + year,
+                totalRevenue
+        );
+
+        statisticsRepository.save(statistics);
+
+        return savedReport;
     }
 }
