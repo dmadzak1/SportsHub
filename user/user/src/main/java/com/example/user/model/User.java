@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 @Data
@@ -23,6 +26,10 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
+
+    // U User.java — dodaj uz ostala polja
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<AuthToken> authTokens = new ArrayList<>();
 
     public User(String email, String password, Role role) {
         this.email = email;
