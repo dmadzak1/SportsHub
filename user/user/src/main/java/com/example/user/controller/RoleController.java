@@ -1,7 +1,11 @@
 package com.example.user.controller;
 
+import com.example.user.dto.RoleDTO;
 import com.example.user.model.Role;
-import com.example.user.repository.RoleRepository;
+import com.example.user.service.RoleService;
+import jakarta.validation.Valid;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,29 +15,42 @@ import java.util.List;
 @RequestMapping("/roles")
 public class RoleController {
 
-    private final RoleRepository roleRepository;
+    private final RoleService roleService;
+    private final ModelMapper modelMapper;
 
-    public RoleController(RoleRepository roleRepository) {
-        this.roleRepository = roleRepository;
+    public RoleController(RoleService roleService, ModelMapper modelMapper) {
+        this.roleService = roleService;
+        this.modelMapper = modelMapper;
     }
 
-    // GET /roles
     @GetMapping
-    public List<Role> getAll() {
-        return roleRepository.findAll();
+    public List<RoleDTO> getAll() {
+        return roleService.getAll().stream()
+                .map(r -> modelMapper.map(r, RoleDTO.class))
+                .toList();
     }
 
-    // GET /roles/1
     @GetMapping("/{id}")
-    public ResponseEntity<Role> getById(@PathVariable Long id) {
-        return roleRepository.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public RoleDTO getById(@PathVariable Long id) {
+        return modelMapper.map(roleService.getById(id), RoleDTO.class);
     }
 
-    // POST /roles
     @PostMapping
-    public Role create(@RequestBody Role role) {
-        return roleRepository.save(role);
+    public ResponseEntity<RoleDTO> create(@Valid @RequestBody RoleDTO dto) {
+        Role created = roleService.create(modelMapper.map(dto, Role.class));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(modelMapper.map(created, RoleDTO.class));
+    }
+
+    @PutMapping("/{id}")
+    public RoleDTO update(@PathVariable Long id, @Valid @RequestBody RoleDTO dto) {
+        Role updated = roleService.update(id, modelMapper.map(dto, Role.class));
+        return modelMapper.map(updated, RoleDTO.class);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        roleService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -1,7 +1,13 @@
 package com.example.user.controller;
 
+import com.example.user.dto.UserDTO;
+import com.example.user.model.Role;
 import com.example.user.model.User;
-import com.example.user.repository.UserRepository;
+import com.example.user.service.RoleService;
+import com.example.user.service.UserService;
+import jakarta.validation.Valid;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,47 +17,60 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
+    private final RoleService roleService;
+    private final ModelMapper modelMapper;
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserController(UserService userService, RoleService roleService, ModelMapper modelMapper) {
+        this.userService = userService;
+        this.roleService = roleService;
+        this.modelMapper = modelMapper;
     }
 
-    // GET /users
     @GetMapping
-    public List<User> getAll() {
-        return userRepository.findAll();
+    public List<UserDTO> getAll() {
+        return userService.getAll().stream()
+                .map(this::toDTO)
+                .toList();
     }
 
-    // GET /users/1
     @GetMapping("/{id}")
-    public ResponseEntity<User> getById(@PathVariable Long id) {
-        return userRepository.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public UserDTO getById(@PathVariable Long id) {
+        return toDTO(userService.getById(id));
     }
 
-    // GET /users/email/ana@email.com
     @GetMapping("/email/{email}")
-    public ResponseEntity<User> getByEmail(@PathVariable String email) {
-        return userRepository.findByEmail(email)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public UserDTO getByEmail(@PathVariable String email) {
+        return toDTO(userService.getByEmail(email));
     }
 
-    // POST /users
     @PostMapping
-    public User create(@RequestBody User user) {
-        return userRepository.save(user);
+    public ResponseEntity<UserDTO> create(@Valid @RequestBody UserDTO dto) {
+        Role role = roleService.getById(dto.getRoleId());
+        User user = new User(dto.getEmail(), dto.getPassword(), role);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(toDTO(userService.create(user)));
     }
 
-    // DELETE /users/1
+    @PutMapping("/{id}")
+    public UserDTO update(@PathVariable Long id, @Valid @RequestBody UserDTO dto) {
+        Role role = roleService.getById(dto.getRoleId());
+        User user = new User(dto.getEmail(), dto.getPassword(), role);
+        return toDTO(userService.update(id, user));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        if (!userRepository.existsById(id)) {
-            return ResponseEntity.notFound().build();
-        }
-        userRepository.deleteById(id);
+        userService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    private UserDTO toDTO(User user) {
+        UserDTO dto = new UserDTO();
+        dto.setUserId(user.getUserId());
+        dto.setEmail(user.getEmail());
+        dto.setPassword(user.getPassword());
+        dto.setRoleId(user.getRole() != null ? user.getRole().getRoleId() : null);
+        return dto;
     }
 }
