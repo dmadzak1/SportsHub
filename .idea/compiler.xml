@@ -7,8 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="facility-service (1)" />
         <module name="demo" />
         <module name="user" />
+        <module name="facility-service (2)" />
       </profile>
       <profile name="Annotation profile for promotion" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -26,6 +28,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="analytics" options="-parameters" />
       <module name="demo" options="-parameters" />
+      <module name="facility-service (1)" options="-parameters" />
+      <module name="facility-service (2)" options="-parameters" />
       <module name="promotion" options="-parameters" />
       <module name="user" options="-parameters" />
     </option>
