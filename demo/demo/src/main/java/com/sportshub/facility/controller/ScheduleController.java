@@ -1,12 +1,13 @@
 package com.sportshub.facility.controller;
 
+import com.sportshub.facility.dto.PageResponseDTO;
 import com.sportshub.facility.dto.ScheduleDTO;
 import com.sportshub.facility.model.Facility;
 import com.sportshub.facility.model.Schedule;
 import com.sportshub.facility.service.FacilityService;
 import com.sportshub.facility.service.ScheduleService;
 import jakarta.validation.Valid;
-import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,14 +21,11 @@ public class ScheduleController {
 
     private final ScheduleService scheduleService;
     private final FacilityService facilityService;
-    private final ModelMapper modelMapper;
 
     public ScheduleController(ScheduleService scheduleService,
-                              FacilityService facilityService,
-                              ModelMapper modelMapper) {
+                              FacilityService facilityService) {
         this.scheduleService = scheduleService;
         this.facilityService = facilityService;
-        this.modelMapper = modelMapper;
     }
 
     @GetMapping
@@ -35,6 +33,20 @@ public class ScheduleController {
         return scheduleService.getAll().stream()
                 .map(this::toDTO)
                 .toList();
+    }
+
+    @GetMapping("/paginated")
+    public PageResponseDTO<ScheduleDTO> getPaginated(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size,
+            @RequestParam(defaultValue = "scheduleId") String sortBy) {
+
+        Page<Schedule> result = scheduleService.getPaginated(page, size, sortBy);
+        List<ScheduleDTO> content = result.getContent().stream()
+                .map(this::toDTO)
+                .toList();
+        return new PageResponseDTO<>(content, page, size,
+                result.getTotalElements(), result.getTotalPages());
     }
 
     @GetMapping("/{id}")
@@ -64,6 +76,20 @@ public class ScheduleController {
                 .toList();
     }
 
+    @GetMapping("/available")
+    public List<ScheduleDTO> getAvailable() {
+        return scheduleService.getAvailableSchedules().stream()
+                .map(this::toDTO)
+                .toList();
+    }
+
+    @GetMapping("/available/facility/{facilityId}")
+    public List<ScheduleDTO> getAvailableByFacility(@PathVariable Long facilityId) {
+        return scheduleService.getAvailableSchedulesByFacility(facilityId).stream()
+                .map(this::toDTO)
+                .toList();
+    }
+
     @PostMapping
     public ResponseEntity<ScheduleDTO> create(@Valid @RequestBody ScheduleDTO dto) {
         Facility facility = facilityService.getById(dto.getFacilityId());
@@ -78,7 +104,6 @@ public class ScheduleController {
         return ResponseEntity.noContent().build();
     }
 
-    // Helper: Schedule -> ScheduleDTO (jer facilityId nije direktno polje)
     private ScheduleDTO toDTO(Schedule schedule) {
         ScheduleDTO dto = new ScheduleDTO();
         dto.setScheduleId(schedule.getScheduleId());

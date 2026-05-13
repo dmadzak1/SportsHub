@@ -1,8 +1,12 @@
 package com.sportshub.facility.service;
 
+import com.sportshub.facility.exception.ResourceNotFoundException;
 import com.sportshub.facility.model.Schedule;
 import com.sportshub.facility.repository.ScheduleRepository;
-import com.sportshub.facility.exception.ResourceNotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -47,5 +51,21 @@ public class ScheduleService {
             throw new ResourceNotFoundException("Schedule", id);
         }
         scheduleRepository.deleteById(id);
+    }
+
+    // Paginacija
+    public Page<Schedule> getPaginated(int page, int size, String sortBy) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+        return scheduleRepository.findAll(pageable);
+    }
+
+    // Slobodni termini
+    public List<Schedule> getAvailableSchedules() {
+        return scheduleRepository.findAvailableSchedules();
+    }
+
+    // Slobodni termini za određeni teren
+    public List<Schedule> getAvailableSchedulesByFacility(Long facilityId) {
+        return scheduleRepository.findAvailableSchedulesByFacility(facilityId);
     }
 }

@@ -1,9 +1,14 @@
 package com.sportshub.facility.service;
 
+import com.sportshub.facility.exception.ResourceNotFoundException;
 import com.sportshub.facility.model.Facility;
 import com.sportshub.facility.repository.FacilityRepository;
-import com.sportshub.facility.exception.ResourceNotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -45,5 +50,27 @@ public class FacilityService {
             throw new ResourceNotFoundException("Facility", id);
         }
         facilityRepository.deleteById(id);
+    }
+
+    // Paginacija i sortiranje
+    public Page<Facility> getPaginated(int page, int size, String sortBy) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+        return facilityRepository.findAll(pageable);
+    }
+
+    // Pretraga po nazivu
+    public List<Facility> searchByName(String keyword) {
+        return facilityRepository.searchByName(keyword);
+    }
+
+    // Tereni sa rasporedima
+    public List<Facility> getFacilitiesWithSchedules() {
+        return facilityRepository.findFacilitiesWithSchedules();
+    }
+
+    // Batch unos
+    @Transactional
+    public List<Facility> createBatch(List<Facility> facilities) {
+        return facilityRepository.saveAll(facilities);
     }
 }

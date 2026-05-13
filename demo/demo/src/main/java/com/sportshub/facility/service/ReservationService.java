@@ -1,20 +1,30 @@
 package com.sportshub.facility.service;
 
+import com.sportshub.facility.exception.ResourceNotFoundException;
 import com.sportshub.facility.model.Reservation;
 import com.sportshub.facility.model.ReservationStatus;
 import com.sportshub.facility.repository.ReservationRepository;
-import com.sportshub.facility.exception.ResourceNotFoundException;
+import com.sportshub.facility.repository.ScheduleRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class ReservationService {
 
     private final ReservationRepository reservationRepository;
+    private final ScheduleRepository scheduleRepository;
 
-    public ReservationService(ReservationRepository reservationRepository) {
+    public ReservationService(ReservationRepository reservationRepository,
+                              ScheduleRepository scheduleRepository) {
         this.reservationRepository = reservationRepository;
+        this.scheduleRepository = scheduleRepository;
     }
 
     public List<Reservation> getAll() {
@@ -31,11 +41,13 @@ public class ReservationService {
     }
 
     public List<Reservation> getByStatus(String status) {
-        return reservationRepository.findByStatus(ReservationStatus.valueOf(status.toUpperCase()));
+        return reservationRepository.findByStatus(
+                ReservationStatus.valueOf(status.toUpperCase()));
     }
 
     public List<Reservation> getByUserAndStatus(Long userId, String status) {
-        return reservationRepository.findByUserIdAndStatus(userId, ReservationStatus.valueOf(status.toUpperCase()));
+        return reservationRepository.findByUserIdAndStatus(
+                userId, ReservationStatus.valueOf(status.toUpperCase()));
     }
 
     public Reservation create(Reservation reservation) {
@@ -53,5 +65,36 @@ public class ReservationService {
             throw new ResourceNotFoundException("Reservation", id);
         }
         reservationRepository.deleteById(id);
+    }
+
+    // Paginacija
+    public Page<Reservation> getPaginated(int page, int size, String sortBy) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+        return reservationRepository.findAll(pageable);
+    }
+
+    // Rezervacije u datumskom rasponu
+    public List<Reservation> getByDateRange(LocalDate from, LocalDate to) {
+        return reservationRepository.findByDateRange(from, to);
+    }
+
+    // Broj rezervacija korisnika
+    public Long countByUser(Long userId) {
+        return reservationRepository.countByUserId(userId);
+    }
+
+    // Transakcijska metoda — otkazivanje rezervacije oslobađa termin
+    @Transactional
+    public Reservation cancelReservation(Long id) {
+        Reservation reservation = getById(id);
+        reservation.setStatus(ReservationStatus.CANCELLED);
+        reservationRepository.save(reservation);
+        return reservation;
+    }
+
+    // Batch unos
+    @Transactional
+    public List<Reservation> createBatch(List<Reservation> reservations) {
+        return reservationRepository.saveAll(reservations);
     }
 }
