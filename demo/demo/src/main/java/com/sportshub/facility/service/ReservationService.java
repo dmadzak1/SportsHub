@@ -1,6 +1,9 @@
 package com.sportshub.facility.service;
 
+import com.sportshub.facility.client.UserServiceClient;
+import com.sportshub.facility.dto.UserResponseDTO;
 import com.sportshub.facility.exception.ResourceNotFoundException;
+import com.sportshub.facility.exception.UserServiceException;
 import com.sportshub.facility.model.Reservation;
 import com.sportshub.facility.model.ReservationStatus;
 import com.sportshub.facility.repository.ReservationRepository;
@@ -20,11 +23,14 @@ public class ReservationService {
 
     private final ReservationRepository reservationRepository;
     private final ScheduleRepository scheduleRepository;
+    private final UserServiceClient userServiceClient;
 
     public ReservationService(ReservationRepository reservationRepository,
-                              ScheduleRepository scheduleRepository) {
+                              ScheduleRepository scheduleRepository,
+                              UserServiceClient userServiceClient) {
         this.reservationRepository = reservationRepository;
         this.scheduleRepository = scheduleRepository;
+        this.userServiceClient = userServiceClient;
     }
 
     public List<Reservation> getAll() {
@@ -50,7 +56,35 @@ public class ReservationService {
                 userId, ReservationStatus.valueOf(status.toUpperCase()));
     }
 
+    public List<Reservation> getByDateRange(LocalDate from, LocalDate to) {
+        return reservationRepository.findByDateRange(from, to);
+    }
+
+    public Long countByUser(Long userId) {
+        return reservationRepository.countByUserId(userId);
+    }
+
+    public Page<Reservation> getPaginated(int page, int size, String sortBy) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+        return reservationRepository.findAll(pageable);
+    }
+
+    // Kreiranje rezervacije sa validacijom korisnika
+    @Transactional
     public Reservation create(Reservation reservation) {
+        // Provjeri da li korisnik postoji u User servisu
+        UserResponseDTO user = userServiceClient.getUserById(reservation.getUserId());
+
+        if (user == null) {
+            throw new UserServiceException(
+                    "User servis nije dostupan. Pokušajte ponovo kasnije.");
+        }
+
+        if (user.getUserId() == null) {
+            throw new UserServiceException(
+                    "Korisnik sa ID-om " + reservation.getUserId() + " ne postoji.");
+        }
+
         return reservationRepository.save(reservation);
     }
 
@@ -60,41 +94,34 @@ public class ReservationService {
         return reservationRepository.save(existing);
     }
 
+    @Transactional
+    public Reservation cancelReservation(Long id) {
+        Reservation reservation = getById(id);
+        reservation.setStatus(ReservationStatus.CANCELLED);
+        return reservationRepository.save(reservation);
+    }
+
+    @Transactional
+    public List<Reservation> createBatch(List<Reservation> reservations) {
+        // Validiraj sve korisnike prije batch unosa
+        for (Reservation reservation : reservations) {
+            UserResponseDTO user = userServiceClient.getUserById(reservation.getUserId());
+            if (user == null) {
+                throw new UserServiceException(
+                        "User servis nije dostupan. Pokušajte ponovo kasnije.");
+            }
+            if (user.getUserId() == null) {
+                throw new UserServiceException(
+                        "Korisnik sa ID-om " + reservation.getUserId() + " ne postoji.");
+            }
+        }
+        return reservationRepository.saveAll(reservations);
+    }
+
     public void delete(Long id) {
         if (!reservationRepository.existsById(id)) {
             throw new ResourceNotFoundException("Reservation", id);
         }
         reservationRepository.deleteById(id);
-    }
-
-    // Paginacija
-    public Page<Reservation> getPaginated(int page, int size, String sortBy) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
-        return reservationRepository.findAll(pageable);
-    }
-
-    // Rezervacije u datumskom rasponu
-    public List<Reservation> getByDateRange(LocalDate from, LocalDate to) {
-        return reservationRepository.findByDateRange(from, to);
-    }
-
-    // Broj rezervacija korisnika
-    public Long countByUser(Long userId) {
-        return reservationRepository.countByUserId(userId);
-    }
-
-    // Transakcijska metoda — otkazivanje rezervacije oslobađa termin
-    @Transactional
-    public Reservation cancelReservation(Long id) {
-        Reservation reservation = getById(id);
-        reservation.setStatus(ReservationStatus.CANCELLED);
-        reservationRepository.save(reservation);
-        return reservation;
-    }
-
-    // Batch unos
-    @Transactional
-    public List<Reservation> createBatch(List<Reservation> reservations) {
-        return reservationRepository.saveAll(reservations);
     }
 }

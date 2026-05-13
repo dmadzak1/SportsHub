@@ -54,6 +54,11 @@ public class GlobalExceptionHandler {
         return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, "server_error", "Došlo je do greške na serveru.");
     }
 
+    @ExceptionHandler(UserServiceException.class)
+    public ResponseEntity<Map<String, Object>> handleUserServiceException(UserServiceException ex) {
+        return buildResponse(HttpStatus.SERVICE_UNAVAILABLE, "user_service_error", ex.getMessage());
+    }
+
     private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String error, String message) {
         Map<String, Object> body = new HashMap<>();
         body.put("timestamp", LocalDateTime.now().toString());

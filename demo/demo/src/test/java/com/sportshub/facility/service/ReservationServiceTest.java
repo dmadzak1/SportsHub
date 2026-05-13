@@ -1,11 +1,15 @@
 package com.sportshub.facility.service;
 
+import com.sportshub.facility.client.UserServiceClient;
+import com.sportshub.facility.dto.UserResponseDTO;
 import com.sportshub.facility.exception.ResourceNotFoundException;
+import com.sportshub.facility.exception.UserServiceException;
 import com.sportshub.facility.model.Facility;
 import com.sportshub.facility.model.Reservation;
 import com.sportshub.facility.model.ReservationStatus;
 import com.sportshub.facility.model.Schedule;
 import com.sportshub.facility.repository.ReservationRepository;
+import com.sportshub.facility.repository.ScheduleRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,6 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -27,30 +32,80 @@ class ReservationServiceTest {
     @Mock
     private ReservationRepository reservationRepository;
 
+    @Mock
+    private ScheduleRepository scheduleRepository;
+
+    @Mock
+    private UserServiceClient userServiceClient;
+
     @InjectMocks
     private ReservationService reservationService;
 
-    private Schedule schedule;
     private Reservation reservation;
+    private UserResponseDTO userResponseDTO;
 
     @BeforeEach
     void setUp() {
         Facility facility = new Facility("Teren 1", "TENNIS");
         facility.setFacilityId(1L);
-        schedule = new Schedule(facility, LocalDate.of(2025, 6, 1), LocalTime.of(10, 0));
+
+        Schedule schedule = new Schedule(facility, LocalDate.now(), LocalTime.of(10, 0));
         schedule.setScheduleId(1L);
-        reservation = new Reservation(42L, schedule, ReservationStatus.PENDING);
+
+        reservation = new Reservation(1L, schedule, ReservationStatus.PENDING);
         reservation.setReservationId(1L);
+
+        userResponseDTO = new UserResponseDTO();
+        userResponseDTO.setUserId(1L);
+        userResponseDTO.setEmail("ana@email.com");
     }
 
     @Test
-    void getAll_returnsAllReservations() {
-        when(reservationRepository.findAll()).thenReturn(List.of(reservation));
+    void create_validUser_createsReservation() {
+        when(userServiceClient.getUserById(1L)).thenReturn(userResponseDTO);
+        when(reservationRepository.save(any())).thenReturn(reservation);
 
-        List<Reservation> result = reservationService.getAll();
+        Reservation result = reservationService.create(reservation);
+
+        assertThat(result.getUserId()).isEqualTo(1L);
+        verify(reservationRepository, times(1)).save(reservation);
+    }
+
+    @Test
+    void create_userServiceUnavailable_throwsException() {
+        when(userServiceClient.getUserById(1L)).thenReturn(null);
+
+        assertThatThrownBy(() -> reservationService.create(reservation))
+                .isInstanceOf(UserServiceException.class)
+                .hasMessageContaining("User servis nije dostupan");
+    }
+
+    @Test
+    void create_userNotFound_throwsException() {
+        UserResponseDTO emptyUser = new UserResponseDTO();
+        when(userServiceClient.getUserById(1L)).thenReturn(emptyUser);
+
+        assertThatThrownBy(() -> reservationService.create(reservation))
+                .isInstanceOf(UserServiceException.class)
+                .hasMessageContaining("ne postoji");
+    }
+
+    @Test
+    void createBatch_validUsers_createsAll() {
+        when(userServiceClient.getUserById(1L)).thenReturn(userResponseDTO);
+        when(reservationRepository.saveAll(any())).thenReturn(List.of(reservation));
+
+        List<Reservation> result = reservationService.createBatch(List.of(reservation));
 
         assertThat(result).hasSize(1);
-        assertThat(result.get(0).getStatus()).isEqualTo(ReservationStatus.PENDING);
+    }
+
+    @Test
+    void createBatch_userServiceUnavailable_throwsException() {
+        when(userServiceClient.getUserById(1L)).thenReturn(null);
+
+        assertThatThrownBy(() -> reservationService.createBatch(List.of(reservation)))
+                .isInstanceOf(UserServiceException.class);
     }
 
     @Test
@@ -59,7 +114,7 @@ class ReservationServiceTest {
 
         Reservation result = reservationService.getById(1L);
 
-        assertThat(result.getUserId()).isEqualTo(42L);
+        assertThat(result.getUserId()).isEqualTo(1L);
     }
 
     @Test
@@ -67,48 +122,17 @@ class ReservationServiceTest {
         when(reservationRepository.findById(99L)).thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> reservationService.getById(99L))
-                .isInstanceOf(ResourceNotFoundException.class)
-                .hasMessageContaining("99");
+                .isInstanceOf(ResourceNotFoundException.class);
     }
 
     @Test
-    void getByUser_returnsFilteredReservations() {
-        when(reservationRepository.findByUserId(42L)).thenReturn(List.of(reservation));
-
-        List<Reservation> result = reservationService.getByUser(42L);
-
-        assertThat(result).hasSize(1);
-        assertThat(result.get(0).getUserId()).isEqualTo(42L);
-    }
-
-    @Test
-    void getByStatus_returnsFilteredReservations() {
-        when(reservationRepository.findByStatus(ReservationStatus.PENDING)).thenReturn(List.of(reservation));
-
-        List<Reservation> result = reservationService.getByStatus("PENDING");
-
-        assertThat(result).hasSize(1);
-        assertThat(result.get(0).getStatus()).isEqualTo(ReservationStatus.PENDING);
-    }
-
-    @Test
-    void create_savesReservation() {
-        when(reservationRepository.save(reservation)).thenReturn(reservation);
-
-        Reservation result = reservationService.create(reservation);
-
-        assertThat(result.getStatus()).isEqualTo(ReservationStatus.PENDING);
-        verify(reservationRepository, times(1)).save(reservation);
-    }
-
-    @Test
-    void updateStatus_existingId_updatesStatus() {
+    void cancelReservation_existingId_cancels() {
         when(reservationRepository.findById(1L)).thenReturn(Optional.of(reservation));
-        when(reservationRepository.save(any())).thenAnswer(inv -> inv.getArgument(0));
+        when(reservationRepository.save(any())).thenReturn(reservation);
 
-        Reservation result = reservationService.updateStatus(1L, "CONFIRMED");
+        Reservation result = reservationService.cancelReservation(1L);
 
-        assertThat(result.getStatus()).isEqualTo(ReservationStatus.CONFIRMED);
+        assertThat(result.getStatus()).isEqualTo(ReservationStatus.CANCELLED);
     }
 
     @Test

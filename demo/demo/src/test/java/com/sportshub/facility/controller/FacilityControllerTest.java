@@ -1,6 +1,7 @@
 package com.sportshub.facility.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sportshub.facility.config.ModelMapperConfig;
 import com.sportshub.facility.dto.FacilityBatchDTO;
 import com.sportshub.facility.dto.FacilityDTO;
 import com.sportshub.facility.exception.GlobalExceptionHandler;
@@ -26,7 +27,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(FacilityController.class)
-@Import(GlobalExceptionHandler.class)
+@Import({GlobalExceptionHandler.class, ModelMapperConfig.class})
 class FacilityControllerTest {
 
     @Autowired

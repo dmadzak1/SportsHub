@@ -1,0 +1,179 @@
+Index: .idea/encodings.xml
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+deleted file mode 100644
+--- a/.idea/encodings.xml	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
++++ /dev/null	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
+@@ -1,9 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Encoding">
+-    <file url="file://$PROJECT_DIR$/analytics/analytics/src/main/java" charset="UTF-8" />
+-    <file url="file://$PROJECT_DIR$/demo/demo/src/main/java" charset="UTF-8" />
+-    <file url="file://$PROJECT_DIR$/promotion/promotion/src/main/java" charset="UTF-8" />
+-    <file url="file://$PROJECT_DIR$/user/user/src/main/java" charset="UTF-8" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+deleted file mode 100644
+--- a/.idea/compiler.xml	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
++++ /dev/null	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
+@@ -1,37 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="CompilerConfiguration">
+-    <annotationProcessing>
+-      <profile default="true" name="Default" enabled="true" />
+-      <profile name="Maven default annotation processors profile" enabled="true">
+-        <sourceOutputDir name="target/generated-sources/annotations" />
+-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+-        <outputRelativeToContentRoot value="true" />
+-        <module name="facility-service (1)" />
+-        <module name="demo" />
+-        <module name="user" />
+-        <module name="facility-service (2)" />
+-      </profile>
+-      <profile name="Annotation profile for promotion" enabled="true">
+-        <sourceOutputDir name="target/generated-sources/annotations" />
+-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+-        <outputRelativeToContentRoot value="true" />
+-        <processorPath useClasspath="false">
+-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar" />
+-        </processorPath>
+-        <module name="analytics" />
+-        <module name="promotion" />
+-      </profile>
+-    </annotationProcessing>
+-  </component>
+-  <component name="JavacSettings">
+-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+-      <module name="analytics" options="-parameters" />
+-      <module name="demo" options="-parameters" />
+-      <module name="facility-service (1)" options="-parameters" />
+-      <module name="facility-service (2)" options="-parameters" />
+-      <module name="promotion" options="-parameters" />
+-      <module name="user" options="-parameters" />
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
++++ /dev/null	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
+@@ -1,10 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Ignored default folder with query files
+-/queries/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
+Index: .idea/jarRepositories.xml
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+deleted file mode 100644
+--- a/.idea/jarRepositories.xml	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
++++ /dev/null	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
+@@ -1,20 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="RemoteRepositoriesConfiguration">
+-    <remote-repository>
+-      <option name="id" value="central" />
+-      <option name="name" value="Central Repository" />
+-      <option name="url" value="https://repo.maven.apache.org/maven2" />
+-    </remote-repository>
+-    <remote-repository>
+-      <option name="id" value="central" />
+-      <option name="name" value="Maven Central repository" />
+-      <option name="url" value="https://repo1.maven.org/maven2" />
+-    </remote-repository>
+-    <remote-repository>
+-      <option name="id" value="jboss.community" />
+-      <option name="name" value="JBoss Community repository" />
+-      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+-    </remote-repository>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/SportsHub.iml
+===================================================================
+diff --git a/.idea/SportsHub.iml b/.idea/SportsHub.iml
+deleted file mode 100644
+--- a/.idea/SportsHub.iml	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
++++ /dev/null	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
+@@ -1,9 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="JAVA_MODULE" version="4">
+-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: .idea/vcs.xml
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+deleted file mode 100644
+--- a/.idea/vcs.xml	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
++++ /dev/null	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+deleted file mode 100644
+--- a/.idea/modules.xml	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
++++ /dev/null	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/SportsHub.iml" filepath="$PROJECT_DIR$/.idea/SportsHub.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+deleted file mode 100644
+--- a/.idea/misc.xml	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
++++ /dev/null	(revision b5d5b7214bc46cedd8a111f3996738bf884fc2a3)
+@@ -1,17 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="MavenProjectsManager">
+-    <option name="originalFiles">
+-      <list>
+-        <option value="$PROJECT_DIR$/demo/demo/pom.xml" />
+-        <option value="$PROJECT_DIR$/user/user/pom.xml" />
+-        <option value="$PROJECT_DIR$/analytics/analytics/pom.xml" />
+-        <option value="$PROJECT_DIR$/promotion/promotion/pom.xml" />
+-      </list>
+-    </option>
+-  </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_26" project-jdk-name="ms-17" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
+-</project>
+\ No newline at end of file
