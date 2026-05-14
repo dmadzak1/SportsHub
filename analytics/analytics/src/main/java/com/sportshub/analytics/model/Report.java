@@ -1,8 +1,13 @@
 package com.sportshub.analytics.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,16 +21,20 @@ public class Report {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reportId;
 
+    @NotBlank(message = "Naziv izvještaja ne smije biti prazan.")
+    @Size(max = 100, message = "Naziv izvještaja ne smije biti duži od 100 znakova.")
     @Column(nullable = false)
-    private String reportType; // REVENUE, CAPACITY, RESERVATIONS
+    private String title;
 
-    private LocalDateTime generatedAt;
+    @NotNull(message = "Datum izvještaja ne smije biti null.")
+    @Column(nullable = false)
+    private LocalDate date;
 
     @OneToMany(mappedBy = "report", cascade = CascadeType.ALL)
     private List<Statistics> statistics;
 
-    public Report(String reportType) {
-        this.reportType = reportType;
-        this.generatedAt = LocalDateTime.now();
+    public Report(String title, LocalDate date) {
+        this.title = title;
+        this.date = date;
     }
 }

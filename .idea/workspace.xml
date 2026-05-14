@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment="Merge" />
+    <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment="Merge">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/RevenueLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/RevenueLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/Statistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Facility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/src/main/java/com/sportshub/promotion/model/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/src/main/java/com/sportshub/promotion/model/Discount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/src/main/java/com/sportshub/promotion/model/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/src/main/java/com/sportshub/promotion/model/Package.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuditLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuditLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuthToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +53,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/exception/GlobalExceptionHandler.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
   <component name="KubernetesApiProvider"><![CDATA[{
   "isMigrated": true
 }]]></component>
@@ -210,7 +225,7 @@
       <updated>1778699288413</updated>
       <workItem from="1778699291943" duration="6221000" />
       <workItem from="1778746614486" duration="2164000" />
-      <workItem from="1778758233246" duration="506000" />
+      <workItem from="1778758233246" duration="1400000" />
     </task>
     <task id="LOCAL-00001">
       <option name="closed" value="true" />
@@ -228,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778758720910</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Merge">
+      <option name="closed" value="true" />
+      <created>1778758759758</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1778758759758</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
