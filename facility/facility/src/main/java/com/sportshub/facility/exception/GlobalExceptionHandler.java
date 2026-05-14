@@ -1,5 +1,6 @@
 package com.sportshub.facility.exception;
 
+import feign.FeignException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -57,6 +58,16 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(UserServiceException.class)
     public ResponseEntity<Map<String, Object>> handleUserServiceException(UserServiceException ex) {
         return buildResponse(HttpStatus.SERVICE_UNAVAILABLE, "user_service_error", ex.getMessage());
+    }
+
+    @ExceptionHandler(FeignException.NotFound.class)
+    public ResponseEntity<Map<String, Object>> handleFeignNotFound(FeignException.NotFound ex) {
+        return buildResponse(HttpStatus.NOT_FOUND, "not_found", "Korisnik nije pronađen.");
+    }
+
+    @ExceptionHandler(FeignException.class)
+    public ResponseEntity<Map<String, Object>> handleFeignException(FeignException ex) {
+        return buildResponse(HttpStatus.SERVICE_UNAVAILABLE, "user_service_error", "User servis nije dostupan.");
     }
 
     private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String error, String message) {
