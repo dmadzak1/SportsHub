@@ -8,16 +8,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="facility-service" />
-        <module name="discovery-server" />
-        <module name="facility-service (1)" />
         <module name="facility-service (2)" />
-        <module name="user" />
+        <module name="discovery-server" />
       </profile>
       <profile name="Annotation profile for promotion" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="analytics" />
@@ -26,6 +25,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="17" />
+      <module name="facility-service (1)" target="17" />
+      <module name="user" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -36,7 +37,6 @@
       <module name="facility-service (1)" options="-parameters" />
       <module name="facility-service (2)" options="-parameters" />
       <module name="promotion" options="-parameters" />
-      <module name="user" options="-parameters" />
     </option>
   </component>
 </project>
