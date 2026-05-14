@@ -3,6 +3,7 @@ package com.example.user.controller;
 import com.example.user.dto.PageResponseDTO;
 import com.example.user.dto.UserBatchDTO;
 import com.example.user.dto.UserDTO;
+import com.example.user.dto.UserWithPromotionsDTO;
 import com.example.user.model.Role;
 import com.example.user.model.User;
 import com.example.user.service.RoleService;
@@ -147,6 +148,12 @@ public class UserController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         userService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    // GET /users/{id}/promotions
+    @GetMapping("/{id}/promotions")
+    public UserWithPromotionsDTO getUserWithPromotions(@PathVariable Long id) {
+        return userService.getUserWithPromotions(id);
     }
 
     private UserDTO toDTO(User user) {
