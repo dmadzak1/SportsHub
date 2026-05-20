@@ -8,8 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="facility-service" />
-        <module name="facility-service (2)" />
         <module name="discovery-server" />
+        <module name="facility-service (2)" />
+        <module name="user" />
       </profile>
       <profile name="Annotation profile for promotion" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -26,7 +27,6 @@
     <bytecodeTargetLevel>
       <module name="demo" target="17" />
       <module name="facility-service (1)" target="17" />
-      <module name="user" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -37,6 +37,7 @@
       <module name="facility-service (1)" options="-parameters" />
       <module name="facility-service (2)" options="-parameters" />
       <module name="promotion" options="-parameters" />
+      <module name="user" options="-parameters" />
     </option>
   </component>
 </project>

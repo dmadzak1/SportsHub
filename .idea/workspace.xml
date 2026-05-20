@@ -4,20 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment="Merge">
+    <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment="Model validation">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/controller/LoadBalanceTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/controller/LoadBalanceTestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/Report.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/RevenueLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/RevenueLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/Statistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Facility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/model/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promotion/promotion/src/main/java/com/sportshub/promotion/model/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/src/main/java/com/sportshub/promotion/model/Discount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promotion/promotion/src/main/java/com/sportshub/promotion/model/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/src/main/java/com/sportshub/promotion/model/Package.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuditLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuditLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuthToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/controller/LoadBalanceTestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/controller/LoadBalanceTestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/Report.class" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/Report.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/RevenueLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/RevenueLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/Statistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/Statistics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/controller/FacilityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/controller/FacilityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/controller/FacilityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/controller/FacilityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/FacilityBatchDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/FacilityBatchDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/PageResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/PageResponseDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/ReservationBatchDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/ReservationBatchDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/ScheduleDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/ScheduleDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Facility.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Facility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Reservation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Schedule.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +33,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="161" />
+    <option name="cachedIndexableFilesCount" value="164" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -38,25 +46,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "mbjelobrk1"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mbjelobrk1&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/dmadzak1/SportsHub.git",
-    "accountId": "8a058e0d-09f6-4594-a307-1765ce9a28c6"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dmadzak1/SportsHub.git&quot;,
+    &quot;accountId&quot;: &quot;8a058e0d-09f6-4594-a307-1765ce9a28c6&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/exception/GlobalExceptionHandler.java" root0="SKIP_INSPECTION" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -90,6 +98,7 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -114,6 +123,13 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Eurobit\IdeaProjects\SportsHub" />
+      <recent name="C:\Users\Eurobit\IdeaProjects\SportsHub\facility\facility" />
+      <recent name="C:\Users\Eurobit\IdeaProjects\SportsHub\facility\.mvn" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -131,15 +147,13 @@
               <entry key="AnalyticsApplication" value="STOPPED" />
               <entry key="DiscoveryServerApplication" value="STOPPED" />
               <entry key="FacilityServiceApplication" value="STOPPED" />
-              <entry key="PromotionApplication" value="STOPPED" />
-              <entry key="UserApplication" value="STOPPED" />
             </map>
           </value>
         </entry>
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.FacilityServiceApplication">
+  <component name="RunManager" selected="Spring Boot.AnalyticsApplication">
     <configuration name="All in analytics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="analytics" />
       <option name="PACKAGE_NAME" value="" />
@@ -188,6 +202,7 @@
     </configuration>
     <configuration name="FacilityServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="facility-service" />
+      <option name="PROGRAM_PARAMETERS" value="--server.port=8081" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sportshub.facility.FacilityServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -201,12 +216,23 @@
       </method>
     </configuration>
     <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="facility-service (2)" />
+      <module name="user" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.user.UserApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.All in analytics" />
+      <item itemvalue="JUnit.All in facility-service (1)" />
+      <item itemvalue="JUnit.All in facility-service (2)" />
+      <item itemvalue="JUnit.All in promotion" />
+      <item itemvalue="Spring Boot.AnalyticsApplication" />
+      <item itemvalue="Spring Boot.DiscoveryServerApplication" />
+      <item itemvalue="Spring Boot.FacilityServiceApplication" />
+      <item itemvalue="Spring Boot.PromotionApplication" />
+      <item itemvalue="Spring Boot.UserApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in facility-service (2)" />
@@ -225,7 +251,12 @@
       <updated>1778699288413</updated>
       <workItem from="1778699291943" duration="6221000" />
       <workItem from="1778746614486" duration="2164000" />
-      <workItem from="1778758233246" duration="1400000" />
+      <workItem from="1778758233246" duration="4548000" />
+      <workItem from="1778845910971" duration="133000" />
+      <workItem from="1779112149492" duration="367000" />
+      <workItem from="1779229853274" duration="1985000" />
+      <workItem from="1779231852353" duration="2379000" />
+      <workItem from="1779263237498" duration="1070000" />
     </task>
     <task id="LOCAL-00001">
       <option name="closed" value="true" />
@@ -251,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778758759758</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Model validation">
+      <option name="closed" value="true" />
+      <created>1778759744808</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1778759744808</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +299,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Non trivial services, refactoring and Eureka" />
     <MESSAGE value="Merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge" />
+    <MESSAGE value="Model validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Model validation" />
   </component>
 </project>

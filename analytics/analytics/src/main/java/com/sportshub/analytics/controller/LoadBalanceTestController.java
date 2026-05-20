@@ -19,4 +19,9 @@ public class LoadBalanceTestController {
     public Map<String, Object> getPromotionInstance() {
         return restTemplate.getForObject("http://promotion/instance", Map.class);
     }
+
+    @GetMapping("/test/facility-instance")
+    public Map<String, Object> getFacilityInstance() {
+        return restTemplate.getForObject("http://facility/instance", Map.class);
+    }
 }
