@@ -45,8 +45,8 @@ public class DataLoader implements CommandLineRunner {
         authTokenRepository.save(new AuthToken(user1, "token-xyz-456", LocalDateTime.now().plusHours(1)));
 
         // Kreiranje audit logova
-        auditLogRepository.save(new AuditLog(admin, "LOGIN"));
-        auditLogRepository.save(new AuditLog(user1, "RESERVATION_CREATED"));
+        auditLogRepository.save(new AuditLog(admin, "LOGIN", LocalDateTime.now()));
+        auditLogRepository.save(new AuditLog(user1, "RESERVATION_CREATED", LocalDateTime.now()));
 
         System.out.println("✅ User Service: testni podaci uspješno učitani.");
     }

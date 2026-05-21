@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -70,7 +71,7 @@ public class UserService {
     }
 
     public List<User> getByRole(String roleName) {
-        return userRepository.findByRoleRoleName(roleName);
+        return userRepository.findByRole_Name(roleName);
     }
 
     public List<User> searchByEmail(String keyword) {
@@ -89,7 +90,7 @@ public class UserService {
     @Transactional
     public User createWithAuditLog(User user) {
         User saved = userRepository.save(user);
-        AuditLog log = new AuditLog(saved, "USER_CREATED");
+        AuditLog log = new AuditLog(saved, "USER_CREATED", LocalDateTime.now());
         auditLogRepository.save(log);
         return saved;
     }

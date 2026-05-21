@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="facility-service" />
         <module name="discovery-server" />
-        <module name="facility-service (2)" />
         <module name="user" />
       </profile>
       <profile name="Annotation profile for promotion" enabled="true">
@@ -22,6 +21,15 @@
         </processorPath>
         <module name="analytics" />
         <module name="promotion" />
+      </profile>
+      <profile name="Annotation profile for facility-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+        </processorPath>
+        <module name="facility-service (2)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
