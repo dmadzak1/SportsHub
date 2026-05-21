@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -39,14 +40,15 @@ public class AuditLogController {
     @PostMapping
     public ResponseEntity<AuditLogDTO> create(@Valid @RequestBody AuditLogDTO dto) {
         User user = userService.getById(dto.getUserId());
-        AuditLog auditLog = new AuditLog(user, dto.getAction());
+        LocalDateTime timestamp = dto.getTimestamp() != null ? dto.getTimestamp() : LocalDateTime.now();
+        AuditLog auditLog = new AuditLog(user, dto.getAction(), timestamp);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(toDTO(auditLogService.create(auditLog)));
     }
 
     private AuditLogDTO toDTO(AuditLog log) {
         AuditLogDTO dto = new AuditLogDTO();
-        dto.setLogId(log.getLogId());
+        dto.setLogId(log.getAuditLogId());
         dto.setUserId(log.getUser().getUserId());
         dto.setAction(log.getAction());
         dto.setTimestamp(log.getTimestamp());

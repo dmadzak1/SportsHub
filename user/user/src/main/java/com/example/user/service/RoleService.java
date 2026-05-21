@@ -31,7 +31,7 @@ public class RoleService {
 
     public Role update(Long id, Role updated) {
         Role existing = getById(id);
-        existing.setRoleName(updated.getRoleName());
+        existing.setName(updated.getName());
         return roleRepository.save(existing);
     }
 

@@ -40,7 +40,7 @@ class RoleServiceTest {
         List<Role> result = roleService.getAll();
 
         assertThat(result).hasSize(1);
-        assertThat(result.get(0).getRoleName()).isEqualTo("ADMIN");
+        assertThat(result.get(0).getName()).isEqualTo("ADMIN");
     }
 
     @Test
@@ -49,7 +49,7 @@ class RoleServiceTest {
 
         Role result = roleService.getById(1L);
 
-        assertThat(result.getRoleName()).isEqualTo("ADMIN");
+        assertThat(result.getName()).isEqualTo("ADMIN");
     }
 
     @Test
@@ -67,7 +67,7 @@ class RoleServiceTest {
 
         Role result = roleService.create(role);
 
-        assertThat(result.getRoleName()).isEqualTo("ADMIN");
+        assertThat(result.getName()).isEqualTo("ADMIN");
         verify(roleRepository, times(1)).save(role);
     }
 
@@ -79,7 +79,7 @@ class RoleServiceTest {
 
         Role result = roleService.update(1L, updated);
 
-        assertThat(result.getRoleName()).isEqualTo("USER");
+        assertThat(result.getName()).isEqualTo("USER");
     }
 
     @Test

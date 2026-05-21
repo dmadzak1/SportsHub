@@ -12,6 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,8 +39,8 @@ class AuditLogServiceTest {
         user = new User("ana@email.com", "pass", role);
         user.setUserId(1L);
 
-        auditLog = new AuditLog(user, "LOGIN");
-        auditLog.setLogId(1L);
+        auditLog = new AuditLog(user, "LOGIN", LocalDateTime.now());
+        auditLog.setAuditLogId(1L);
     }
 
     @Test

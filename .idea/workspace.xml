@@ -5,27 +5,80 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment="Model validation">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2026_21_35_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2026_21_35__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/controller/LoadBalanceTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/controller/LoadBalanceTestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/java/com/sportshub/analytics/model/Report.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/controller/LoadBalanceTestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/controller/LoadBalanceTestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/Report.class" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/Report.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/RevenueLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/RevenueLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/Statistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/target/classes/com/sportshub/analytics/model/Statistics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facility/facility/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/controller/FacilityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/java/com/sportshub/facility/controller/FacilityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facility/facility/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/controller/FacilityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/controller/FacilityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/FacilityBatchDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/FacilityBatchDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/PageResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/PageResponseDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/ReservationBatchDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/ReservationBatchDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/ScheduleDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/dto/ScheduleDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Facility.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Facility.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Reservation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/com/sportshub/facility/model/Schedule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/src/main/java/com/sportshub/promotion/model/Promotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/src/main/java/com/sportshub/promotion/model/Promotion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/controller/DiscountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/controller/DiscountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/controller/PackageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/controller/PackageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/controller/PromotionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/controller/PromotionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/controller/PromotionUsageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/controller/PromotionUsageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/dto/DiscountDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/dto/DiscountDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/dto/PackageDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/dto/PackageDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/dto/PromotionDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/dto/PromotionDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/dto/PromotionUsageDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/dto/PromotionUsageDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/exception/ResourceNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/exception/ResourceNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/Discount.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/Discount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/Package.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/Package.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/Promotion.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/Promotion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/PromotionUsage.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/PromotionUsage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/service/DiscountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/service/DiscountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/service/PackageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/service/PackageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/service/PromotionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/service/PromotionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/service/PromotionUsageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/service/PromotionUsageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/test-classes/com/sportshub/promotion/service/DiscountServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/test-classes/com/sportshub/promotion/service/DiscountServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/test-classes/com/sportshub/promotion/service/PackageServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/test-classes/com/sportshub/promotion/service/PackageServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/test-classes/com/sportshub/promotion/service/PromotionServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/test-classes/com/sportshub/promotion/service/PromotionServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/test-classes/com/sportshub/promotion/service/PromotionUsageServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/test-classes/com/sportshub/promotion/service/PromotionUsageServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/DataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/client/PromotionServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/client/PromotionServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/controller/AuditLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/controller/AuditLogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/test/java/com/example/user/service/AuditLogServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/test/java/com/example/user/service/AuditLogServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/test/java/com/example/user/service/RoleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/test/java/com/example/user/service/RoleServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/DataLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/DataLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/client/PromotionServiceClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/client/PromotionServiceClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/controller/AuditLogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/controller/AuditLogController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/controller/AuthTokenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/controller/AuthTokenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/controller/RoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/controller/RoleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/AuditLogDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/AuditLogDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/AuthTokenDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/AuthTokenDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/PageResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/PageResponseDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/PromotionResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/PromotionResponseDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/RoleDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/RoleDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/UserBatchDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/UserBatchDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/UserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/UserWithPromotionsDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/dto/UserWithPromotionsDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/exception/ResourceNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/exception/ResourceNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/AuditLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/AuditLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/AuthToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/AuthToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/AuditLogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/AuditLogService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/AuthTokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/AuthTokenService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/RoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/RoleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +86,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="164" />
+    <option name="cachedIndexableFilesCount" value="172" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -144,32 +197,17 @@
         <entry key="SpringBootApplicationConfigurationType">
           <value>
             <map>
-              <entry key="AnalyticsApplication" value="STOPPED" />
+              <entry key="AnalyticsApplication" value="FAILED" />
               <entry key="DiscoveryServerApplication" value="STOPPED" />
               <entry key="FacilityServiceApplication" value="STOPPED" />
+              <entry key="PromotionApplication" value="FAILED" />
             </map>
           </value>
         </entry>
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.AnalyticsApplication">
-    <configuration name="All in analytics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="analytics" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in facility-service (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="facility-service (1)" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.java in facility-service (2)">
     <configuration name="All in facility-service (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="facility-service (2)" />
       <option name="PACKAGE_NAME" value="" />
@@ -178,10 +216,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in promotion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="java in analytics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="analytics" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/analytics/analytics/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in facility-service (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="facility-service (2)" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/user/user/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in facility-service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="facility-service" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/facility/facility/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in promotion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="promotion" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/promotion/promotion/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -189,13 +251,6 @@
     <configuration name="AnalyticsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="analytics" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sportshub.analytics.AnalyticsApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="api-gateway" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sportshub.apigateway.ApiGatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -230,11 +285,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.All in analytics" />
-      <item itemvalue="JUnit.All in facility-service (1)" />
+      <item itemvalue="JUnit.java in analytics" />
+      <item itemvalue="JUnit.java in facility-service" />
+      <item itemvalue="JUnit.java in facility-service (2)" />
+      <item itemvalue="JUnit.java in promotion" />
       <item itemvalue="JUnit.All in facility-service (2)" />
-      <item itemvalue="JUnit.All in promotion" />
-      <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.AnalyticsApplication" />
       <item itemvalue="Spring Boot.DiscoveryServerApplication" />
       <item itemvalue="Spring Boot.FacilityServiceApplication" />
@@ -243,10 +298,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in facility-service (2)" />
+        <item itemvalue="JUnit.java in promotion" />
+        <item itemvalue="JUnit.java in facility-service" />
+        <item itemvalue="JUnit.java in analytics" />
         <item itemvalue="JUnit.All in facility-service (2)" />
-        <item itemvalue="JUnit.All in analytics" />
-        <item itemvalue="JUnit.All in promotion" />
-        <item itemvalue="JUnit.All in facility-service (1)" />
       </list>
     </recent_temporary>
   </component>
