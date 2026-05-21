@@ -193,6 +193,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sportshub.apigateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DiscoveryServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="discovery-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sportshub.discovery.DiscoveryServerApplication" />
@@ -227,6 +234,7 @@
       <item itemvalue="JUnit.All in facility-service (1)" />
       <item itemvalue="JUnit.All in facility-service (2)" />
       <item itemvalue="JUnit.All in promotion" />
+      <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.AnalyticsApplication" />
       <item itemvalue="Spring Boot.DiscoveryServerApplication" />
       <item itemvalue="Spring Boot.FacilityServiceApplication" />
