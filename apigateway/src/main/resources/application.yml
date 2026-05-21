@@ -1,0 +1,55 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: facility-service
+          uri: lb://FACILITY
+          predicates:
+            - Path=/api/facility/**
+          filters:
+            - StripPrefix=2
+
+        - id: promotion-service
+          uri: lb://PROMOTION
+          predicates:
+            - Path=/api/promotion/**
+          filters:
+            - StripPrefix=2
+
+        - id: analytics-service
+          uri: lb://ANALYTICS
+          predicates:
+            - Path=/api/analytics/**
+          filters:
+            - StripPrefix=2
+
+        - id: user-service
+          uri: lb://USER
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=2
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
+  endpoint:
+    health:
+      show-details: always
