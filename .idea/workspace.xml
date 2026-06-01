@@ -4,27 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment="Additional fix application.yml">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ac4858f0-6cdd-4148-a7a8-55651d80af58.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ac4858f0-6cdd-4148-a7a8-55651d80af58.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apigateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apigateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apigateway/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuthToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/repository/AuthTokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/repository/AuthTokenRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/AuthTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/AuthTokenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/exception/ResourceNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/exception/ResourceNotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/AuthToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/AuthToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/repository/AuthTokenRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/repository/AuthTokenRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/AuthTokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/AuthTokenService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/UserService.class" afterDir="false" />
-    </list>
+    <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment="JWT Fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +12,6 @@
   </component>
   <component name="EmbeddingIndexingInfo">
     <option name="cachedIndexableFilesCount" value="186" />
-    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -276,6 +255,7 @@
       <workItem from="1779263237498" duration="1070000" />
       <workItem from="1779437377797" duration="12721000" />
       <workItem from="1779781230158" duration="2000" />
+      <workItem from="1780314648220" duration="763000" />
     </task>
     <task id="LOCAL-00001">
       <option name="closed" value="true" />
@@ -325,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779362844543</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="JWT Fix">
+      <option name="closed" value="true" />
+      <created>1780314707181</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1780314707182</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,6 +336,7 @@
     <MESSAGE value="Model validation" />
     <MESSAGE value=".idea (mora se izbaciti)" />
     <MESSAGE value="Additional fix application.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Additional fix application.yml" />
+    <MESSAGE value="JWT Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="JWT Fix" />
   </component>
 </project>
