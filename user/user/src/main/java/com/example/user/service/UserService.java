@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Service
 public class UserService {
@@ -24,13 +25,16 @@ public class UserService {
     private final UserRepository userRepository;
     private final AuditLogRepository auditLogRepository;
     private final PromotionServiceClient promotionServiceClient;
+    private final PasswordEncoder passwordEncoder;
 
     public UserService(UserRepository userRepository,
                        AuditLogRepository auditLogRepository,
-                       PromotionServiceClient promotionServiceClient) {
+                       PromotionServiceClient promotionServiceClient,
+                       PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.auditLogRepository = auditLogRepository;
         this.promotionServiceClient = promotionServiceClient;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<User> getAll() {
@@ -48,13 +52,19 @@ public class UserService {
     }
 
     public User create(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
-    public User update(Long id, User updated) {
+    public User update(Long id, User updatedUser) {
         User existing = getById(id);
-        existing.setEmail(updated.getEmail());
-        existing.setPassword(updated.getPassword());
+        existing.setEmail(updatedUser.getEmail());
+
+        if (updatedUser.getPassword() != null && !updatedUser.getPassword().isBlank()) {
+            existing.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
+        }
+
+        existing.setRole(updatedUser.getRole());
         return userRepository.save(existing);
     }
 

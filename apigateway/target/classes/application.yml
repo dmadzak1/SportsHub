@@ -1,6 +1,10 @@
 server:
   port: 8090
 
+security:
+  jwt:
+    secret: change-this-secret-key-change-this-secret-key-32chars
+    
 spring:
   application:
     name: api-gateway

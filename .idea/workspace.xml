@@ -4,19 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment=".idea (mora se izbaciti)">
+    <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment="Additional fix application.yml">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ac4858f0-6cdd-4148-a7a8-55651d80af58.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ac4858f0-6cdd-4148-a7a8-55651d80af58.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/analytics/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apigateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apigateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facility/facility/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promotion/promotion/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/Discount.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/Discount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/Package.class" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/target/classes/com/sportshub/promotion/model/Package.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apigateway/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/model/AuthToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/repository/AuthTokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/repository/AuthTokenRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/AuthTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/AuthTokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/user/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/exception/ResourceNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/exception/ResourceNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/AuthToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/model/AuthToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/repository/AuthTokenRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/repository/AuthTokenRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/AuthTokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/AuthTokenService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/target/classes/com/example/user/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +31,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="178" />
+    <option name="cachedIndexableFilesCount" value="186" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -75,46 +82,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DiscoveryServerApplication.executor": "Run",
-    "JUnit.All in analytics.executor": "Run",
-    "JUnit.All in facility-service (1).executor": "Run",
-    "JUnit.All in facility-service (2).executor": "Run",
-    "JUnit.All in promotion.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.AnalyticsApplication.executor": "Run",
-    "Spring Boot.ApiGatewayApplication.executor": "Run",
-    "Spring Boot.DiscoveryServerApplication.executor": "Run",
-    "Spring Boot.FacilityServiceApplication.executor": "Run",
-    "Spring Boot.PromotionApplication.executor": "Run",
-    "Spring Boot.UserApplication.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DiscoveryServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in analytics.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in facility-service (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in facility-service (2).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in promotion.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AnalyticsApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DiscoveryServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.FacilityServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PromotionApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserApplication.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Eurobit\IdeaProjects\SportsHub" />
@@ -148,7 +155,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
+  <component name="RunManager" selected="Spring Boot.UserApplication">
     <configuration name="java in analytics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="analytics" />
       <option name="TEST_OBJECT" value="directory" />
@@ -232,8 +239,8 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.java in analytics" />
-      <item itemvalue="JUnit.java in facility-service" />
       <item itemvalue="JUnit.java in facility-service (2)" />
+      <item itemvalue="JUnit.java in facility-service" />
       <item itemvalue="JUnit.java in promotion" />
       <item itemvalue="Spring Boot.AnalyticsApplication" />
       <item itemvalue="Spring Boot.DiscoveryServerApplication" />
@@ -267,6 +274,8 @@
       <workItem from="1779229853274" duration="1985000" />
       <workItem from="1779231852353" duration="2379000" />
       <workItem from="1779263237498" duration="1070000" />
+      <workItem from="1779437377797" duration="12721000" />
+      <workItem from="1779781230158" duration="2000" />
     </task>
     <task id="LOCAL-00001">
       <option name="closed" value="true" />
@@ -308,7 +317,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779361048216</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Additional fix application.yml">
+      <option name="closed" value="true" />
+      <created>1779362844543</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1779362844543</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,6 +347,7 @@
     <MESSAGE value="Merge" />
     <MESSAGE value="Model validation" />
     <MESSAGE value=".idea (mora se izbaciti)" />
-    <option name="LAST_COMMIT_MESSAGE" value=".idea (mora se izbaciti)" />
+    <MESSAGE value="Additional fix application.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Additional fix application.yml" />
   </component>
 </project>

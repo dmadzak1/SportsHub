@@ -24,7 +24,7 @@ public class AuthToken {
     private User user;
 
     @NotBlank(message = "Token ne smije biti prazan.")
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String token;
 
     @NotNull(message = "Datum isteka tokena ne smije biti null.")

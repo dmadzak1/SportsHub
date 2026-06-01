@@ -35,4 +35,14 @@ public class AuthTokenService {
         }
         authTokenRepository.deleteById(id);
     }
+
+    public boolean existsByToken(String token) {
+        return authTokenRepository.existsByToken(token);
+    }
+
+    public void deleteByToken(String token) {
+        AuthToken authToken = authTokenRepository.findByToken(token)
+                .orElseThrow(() -> new ResourceNotFoundException("Token nije pronađen."));
+        authTokenRepository.delete(authToken);
+    }
 }
