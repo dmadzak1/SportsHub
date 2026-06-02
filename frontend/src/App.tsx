@@ -1,11 +1,17 @@
 import type { ReactNode } from 'react';
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import { useAuth } from './auth/AuthContext';
-import { RequireAuth } from './auth/RequireAuth';
+import { RequireAuth, RequireRole } from './auth/RequireAuth';
 import LoginPage from './pages/LoginPage';
+import FacilitiesPage from './pages/FacilitiesPage';
+import AnalyticsPage from './pages/AnalyticsPage';
+import PromotionsPage from './pages/PromotionsPage';
+import UsersPage from './pages/UsersPage';
 
 function Shell({ title, description, children }: { title: string; description: string; children: ReactNode }) {
   const { session, logout } = useAuth();
+  const isAdmin = session?.role === 'ADMIN';
+  const canViewAnalytics = session ? ['ADMIN', 'MANAGER', 'ANALYST'].includes(session.role) : false;
 
   return (
     <div className="app-shell">
@@ -20,10 +26,10 @@ function Shell({ title, description, children }: { title: string; description: s
 
         <nav className="nav">
           <NavLink to="/" end>Dashboard</NavLink>
-          <NavLink to="/users">Users</NavLink>
+          {isAdmin ? <NavLink to="/users">Users</NavLink> : null}
           <NavLink to="/facilities">Facilities</NavLink>
           <NavLink to="/promotions">Promotions</NavLink>
-          <NavLink to="/analytics">Analytics</NavLink>
+          {canViewAnalytics ? <NavLink to="/analytics">Analytics</NavLink> : null}
           <NavLink to="/login">Login</NavLink>
         </nav>
 
@@ -115,10 +121,10 @@ export default function App() {
         path="/login"
         element={<LoginPage />}
       />
-      <Route path="/users" element={<RequireAuth><PlaceholderPage name="Users" detail="List, search, paging and user detail views." /></RequireAuth>} />
-      <Route path="/facilities" element={<RequireAuth><PlaceholderPage name="Facilities" detail="Facilities, schedules and reservations." /></RequireAuth>} />
-      <Route path="/promotions" element={<RequireAuth><PlaceholderPage name="Promotions" detail="Packages, discounts and usage records." /></RequireAuth>} />
-      <Route path="/analytics" element={<RequireAuth><PlaceholderPage name="Analytics" detail="Reports, statistics and revenue logs." /></RequireAuth>} />
+      <Route path="/users" element={<RequireRole roles={['ADMIN']}><UsersPage /></RequireRole>} />
+      <Route path="/facilities" element={<RequireAuth><FacilitiesPage /></RequireAuth>} />
+      <Route path="/promotions" element={<RequireAuth><PromotionsPage /></RequireAuth>} />
+      <Route path="/analytics" element={<RequireRole roles={['ADMIN', 'MANAGER', 'ANALYST']}><AnalyticsPage /></RequireRole>} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

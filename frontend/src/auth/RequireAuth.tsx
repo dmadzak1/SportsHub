@@ -13,3 +13,17 @@ export function RequireAuth({ children }: { children: ReactNode }) {
   return children;
 }
 
+export function RequireRole({ roles, children }: { roles: string[]; children: ReactNode }) {
+  const { session } = useAuth();
+  const location = useLocation();
+
+  if (!session) {
+    return <Navigate to="/login" replace state={{ from: location }} />;
+  }
+
+  if (!roles.includes(session.role)) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+}
