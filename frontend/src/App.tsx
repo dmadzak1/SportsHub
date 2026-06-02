@@ -6,11 +6,15 @@ import LoginPage from './pages/LoginPage';
 import FacilitiesPage from './pages/FacilitiesPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import PromotionsPage from './pages/PromotionsPage';
+import PackagesPage from './pages/PackagesPage';
+import ReservationsPage from './pages/ReservationsPage';
+import SchedulesPage from './pages/SchedulesPage';
 import UsersPage from './pages/UsersPage';
 
 function AppShell({ children }: { children: ReactNode }) {
   const { session, logout } = useAuth();
   const isAdmin = session?.role === 'ADMIN';
+  const isFacilityManager = session ? ['ADMIN', 'MANAGER'].includes(session.role) : false;
   const canViewAnalytics = session ? ['ADMIN', 'MANAGER', 'ANALYST'].includes(session.role) : false;
 
   return (
@@ -27,7 +31,10 @@ function AppShell({ children }: { children: ReactNode }) {
         <nav className="nav">
           <NavLink to="/" end>Dashboard</NavLink>
           {isAdmin ? <NavLink to="/users">Users</NavLink> : null}
-          <NavLink to="/facilities">Facilities</NavLink>
+          {isFacilityManager ? <NavLink to="/facilities">Facilities</NavLink> : null}
+          <NavLink to="/packages">Packages</NavLink>
+          {isFacilityManager ? <NavLink to="/schedules">Schedules</NavLink> : null}
+          {isFacilityManager ? <NavLink to="/reservations">Reservations</NavLink> : null}
           <NavLink to="/promotions">Promotions</NavLink>
           {canViewAnalytics ? <NavLink to="/analytics">Analytics</NavLink> : null}
           <NavLink to="/login">Login</NavLink>
@@ -101,7 +108,10 @@ export default function App() {
           }
         />
         <Route path="users" element={<RequireRole roles={['ADMIN']}><UsersPage /></RequireRole>} />
-        <Route path="facilities" element={<RequireAuth><FacilitiesPage /></RequireAuth>} />
+        <Route path="facilities" element={<RequireRole roles={['ADMIN', 'MANAGER']}><FacilitiesPage /></RequireRole>} />
+        <Route path="packages" element={<RequireAuth><PackagesPage /></RequireAuth>} />
+        <Route path="schedules" element={<RequireRole roles={['ADMIN', 'MANAGER']}><SchedulesPage /></RequireRole>} />
+        <Route path="reservations" element={<RequireRole roles={['ADMIN', 'MANAGER']}><ReservationsPage /></RequireRole>} />
         <Route path="promotions" element={<RequireAuth><PromotionsPage /></RequireAuth>} />
         <Route path="analytics" element={<RequireRole roles={['ADMIN', 'MANAGER', 'ANALYST']}><AnalyticsPage /></RequireRole>} />
       </Route>

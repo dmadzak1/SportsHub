@@ -173,6 +173,13 @@ a {
   margin-bottom: 18px;
 }
 
+.toolbar-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
 .toolbar h2 {
   margin: 4px 0 0;
 }
@@ -185,6 +192,10 @@ a {
   font: inherit;
   color: var(--text);
   background: rgba(255, 255, 255, 0.96);
+}
+
+.search-input.small {
+  width: 150px;
 }
 
 .muted {
