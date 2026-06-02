@@ -37,6 +37,7 @@ export default function ReservationsPage() {
   const [refreshTick, setRefreshTick] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState<ReservationFormState>(emptyForm);
+  const statusBadgeClass = (status: string | null) => `status-badge status-${(status ?? 'unknown').toLowerCase()}`;
 
   const requestPath = useMemo(() => {
     if (userFilter.trim() && statusFilter.trim()) {
@@ -136,6 +137,13 @@ export default function ReservationsPage() {
 
   const totalPages = data?.totalPages ?? 0;
   const resetForm = () => setForm(emptyForm);
+  const clearFilters = () => {
+    setPage(0);
+    setUserFilter('');
+    setStatusFilter('');
+    setFromDate('');
+    setToDate('');
+  };
 
   const submit = async () => {
     if (!form.userId || !form.scheduleId) {
@@ -219,63 +227,92 @@ export default function ReservationsPage() {
   return (
     <div className="page-stack">
       <section className="panel">
-        <div className="toolbar">
-          <div>
-            <p className="eyebrow">Facility service</p>
-            <h2>Reservations</h2>
+        <header className="page-header">
+          <div className="page-header-row">
+            <div className="page-title">
+              <p className="eyebrow">Facility service</p>
+              <h2>Reservations</h2>
+              <p>Create and manage reservations across schedules, with filters for user, status and date range.</p>
+            </div>
+
+            <div className="page-actions">
+              <select
+                className="search-input small"
+                value={userFilter}
+                onChange={(event) => {
+                  setPage(0);
+                  setUserFilter(event.target.value);
+                }}
+              >
+                <option value="">All users</option>
+                {users.map((user) => (
+                  <option key={user.userId} value={user.userId}>
+                    {user.email}
+                  </option>
+                ))}
+              </select>
+              <select
+                className="search-input small"
+                value={statusFilter}
+                onChange={(event) => {
+                  setPage(0);
+                  setStatusFilter(event.target.value);
+                }}
+              >
+                <option value="">All statuses</option>
+                {statusOptions.map((status) => (
+                  <option key={status} value={status}>
+                    {status}
+                  </option>
+                ))}
+              </select>
+              <input
+                className="search-input small"
+                type="date"
+                value={fromDate}
+                onChange={(event) => {
+                  setPage(0);
+                  setFromDate(event.target.value);
+                }}
+              />
+              <input
+                className="search-input small"
+                type="date"
+                value={toDate}
+                onChange={(event) => {
+                  setPage(0);
+                  setToDate(event.target.value);
+                }}
+              />
+              <button type="button" className="secondary-button" onClick={clearFilters} disabled={!userFilter && !statusFilter && !fromDate && !toDate}>
+                Reset filters
+              </button>
+            </div>
           </div>
 
-          <div className="toolbar-filters">
-            <select
-              className="search-input small"
-              value={userFilter}
-              onChange={(event) => {
-                setPage(0);
-                setUserFilter(event.target.value);
-              }}
-            >
-              <option value="">All users</option>
-              {users.map((user) => (
-                <option key={user.userId} value={user.userId}>
-                  {user.email}
-                </option>
-              ))}
-            </select>
-            <select
-              className="search-input small"
-              value={statusFilter}
-              onChange={(event) => {
-                setPage(0);
-                setStatusFilter(event.target.value);
-              }}
-            >
-              <option value="">All statuses</option>
-              {statusOptions.map((status) => (
-                <option key={status} value={status}>
-                  {status}
-                </option>
-              ))}
-            </select>
-            <input
-              className="search-input small"
-              type="date"
-              value={fromDate}
-              onChange={(event) => {
-                setPage(0);
-                setFromDate(event.target.value);
-              }}
-            />
-            <input
-              className="search-input small"
-              type="date"
-              value={toDate}
-              onChange={(event) => {
-                setPage(0);
-                setToDate(event.target.value);
-              }}
-            />
+          <div className="metric-grid">
+            <article className="metric-card">
+              <span className="metric-label">Loaded reservations</span>
+              <strong className="metric-value">{data?.totalElements ?? 0}</strong>
+              <span className="metric-copy">Current list from the facility service.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Filter mode</span>
+              <strong className="metric-value">{userFilter || statusFilter || fromDate || toDate ? 'Filtered' : 'Paged'}</strong>
+              <span className="metric-copy">Pagination is disabled when filters are active.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Create flow</span>
+              <strong className="metric-value">PENDING</strong>
+              <span className="metric-copy">New reservations start as pending.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Access</span>
+              <strong className="metric-value">Admin/Manager</strong>
+              <span className="metric-copy">Protected by role guard and gateway rules.</span>
+            </article>
           </div>
-        </div>
+        </header>
 
         {loading ? <p className="muted">Loading reservations...</p> : null}
         {error ? <p className="error-banner">{error}</p> : null}
@@ -298,14 +335,32 @@ export default function ReservationsPage() {
                     {data.content.map((reservation) => (
                       <tr key={reservation.reservationId}>
                         <td>{reservation.reservationId}</td>
-                        <td>{userLabelById.get(reservation.userId) ?? reservation.userId}</td>
-                        <td>{scheduleLabelById.get(reservation.scheduleId) ?? reservation.scheduleId}</td>
-                        <td>{reservation.status ?? 'n/a'}</td>
+                        <td>
+                          <div className="table-primary">
+                            <strong>{userLabelById.get(reservation.userId) ?? `User #${reservation.userId}`}</strong>
+                            <span>#{reservation.userId}</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div className="table-primary">
+                            <strong>{scheduleLabelById.get(reservation.scheduleId) ?? `Schedule #${reservation.scheduleId}`}</strong>
+                            <span>#{reservation.scheduleId}</span>
+                          </div>
+                        </td>
+                        <td>
+                          <span className={statusBadgeClass(reservation.status)}>{reservation.status ?? 'UNKNOWN'}</span>
+                        </td>
                         <td>
                           <div className="row-actions">
-                            <button type="button" onClick={() => void updateStatus(reservation, 'CONFIRMED')}>Confirm</button>
-                            <button type="button" onClick={() => void cancel(reservation)}>Cancel</button>
-                            <button type="button" onClick={() => void remove(reservation)}>Delete</button>
+                            <button type="button" onClick={() => void updateStatus(reservation, 'CONFIRMED')} disabled={saving}>
+                              {saving ? 'Working...' : 'Confirm'}
+                            </button>
+                            <button type="button" onClick={() => void cancel(reservation)} disabled={saving}>
+                              {saving ? 'Working...' : 'Cancel'}
+                            </button>
+                            <button type="button" onClick={() => void remove(reservation)} disabled={saving}>
+                              {saving ? 'Working...' : 'Delete'}
+                            </button>
                           </div>
                         </td>
                       </tr>
@@ -337,6 +392,9 @@ export default function ReservationsPage() {
           <aside className="editor-card">
             <p className="eyebrow">Create reservation</p>
             <h3>New reservation</h3>
+            <p className="field-hint">
+              Reservations are created as <strong>PENDING</strong>. Admins can pick a user from the list; other roles can enter a numeric user ID.
+            </p>
 
             <div className="form-grid">
               {session?.role === 'ADMIN' && users.length > 0 ? (
@@ -353,6 +411,7 @@ export default function ReservationsPage() {
                       </option>
                     ))}
                   </select>
+                  <span className="field-hint">Use the current authenticated admin list.</span>
                 </label>
               ) : (
                 <label>
@@ -363,6 +422,7 @@ export default function ReservationsPage() {
                     value={form.userId}
                     onChange={(event) => setForm((current) => ({ ...current, userId: event.target.value }))}
                   />
+                  <span className="field-hint">Enter an existing numeric user identifier.</span>
                 </label>
               )}
 
@@ -379,6 +439,7 @@ export default function ReservationsPage() {
                     </option>
                   ))}
                 </select>
+                <span className="field-hint">Only available schedules are loaded here.</span>
               </label>
 
               <p className="muted">New reservations are created as `PENDING` in the backend.</p>

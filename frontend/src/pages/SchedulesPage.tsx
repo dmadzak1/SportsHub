@@ -30,6 +30,7 @@ export default function SchedulesPage() {
   const [refreshTick, setRefreshTick] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState<ScheduleFormState>(emptyForm);
+  const facilityLabelById = new Map(facilities.map((facility) => [facility.facilityId, facility.name]));
 
   const requestPath = useMemo(() => {
     if (facilityFilter.trim() && dateFilter.trim()) {
@@ -111,6 +112,11 @@ export default function SchedulesPage() {
   const totalPages = data?.totalPages ?? 0;
 
   const resetForm = () => setForm(emptyForm);
+  const clearFilters = () => {
+    setPage(0);
+    setFacilityFilter('');
+    setDateFilter('');
+  };
 
   const submit = async () => {
     if (!form.facilityId || !form.date || !form.timeSlot) {
@@ -165,39 +171,68 @@ export default function SchedulesPage() {
   return (
     <div className="page-stack">
       <section className="panel">
-        <div className="toolbar">
-          <div>
-            <p className="eyebrow">Facility service</p>
-            <h2>Schedules</h2>
+        <header className="page-header">
+          <div className="page-header-row">
+            <div className="page-title">
+              <p className="eyebrow">Facility service</p>
+              <h2>Schedules</h2>
+              <p>Track available time slots by facility and date, and manage new schedule entries from the sidebar form.</p>
+            </div>
+
+            <div className="page-actions">
+              <select
+                className="search-input small"
+                value={facilityFilter}
+                onChange={(event) => {
+                  setPage(0);
+                  setFacilityFilter(event.target.value);
+                }}
+              >
+                <option value="">All facilities</option>
+                {facilities.map((facility) => (
+                  <option key={facility.facilityId} value={facility.facilityId}>
+                    {facility.name}
+                  </option>
+                ))}
+              </select>
+              <input
+                className="search-input small"
+                type="date"
+                value={dateFilter}
+                onChange={(event) => {
+                  setPage(0);
+                  setDateFilter(event.target.value);
+                }}
+              />
+              <button type="button" className="secondary-button" onClick={clearFilters} disabled={!facilityFilter && !dateFilter}>
+                Reset filters
+              </button>
+            </div>
           </div>
 
-          <div className="toolbar-filters">
-            <select
-              className="search-input small"
-              value={facilityFilter}
-              onChange={(event) => {
-                setPage(0);
-                setFacilityFilter(event.target.value);
-              }}
-            >
-              <option value="">All facilities</option>
-              {facilities.map((facility) => (
-                <option key={facility.facilityId} value={facility.facilityId}>
-                  {facility.name}
-                </option>
-              ))}
-            </select>
-            <input
-              className="search-input small"
-              type="date"
-              value={dateFilter}
-              onChange={(event) => {
-                setPage(0);
-                setDateFilter(event.target.value);
-              }}
-            />
+          <div className="metric-grid">
+            <article className="metric-card">
+              <span className="metric-label">Loaded schedules</span>
+              <strong className="metric-value">{data?.totalElements ?? 0}</strong>
+              <span className="metric-copy">Current schedule pool from the facility service.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Facility filter</span>
+              <strong className="metric-value">{facilityFilter ? 'Active' : 'Off'}</strong>
+              <span className="metric-copy">Filter by venue or a specific date.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Edit mode</span>
+              <strong className="metric-value">Create/Delete</strong>
+              <span className="metric-copy">Backend currently exposes no schedule update endpoint.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Access</span>
+              <strong className="metric-value">Admin/Manager</strong>
+              <span className="metric-copy">Protected by role guard and gateway rules.</span>
+            </article>
           </div>
-        </div>
+        </header>
 
         {loading ? <p className="muted">Loading schedules...</p> : null}
         {error ? <p className="error-banner">{error}</p> : null}
@@ -220,12 +255,21 @@ export default function SchedulesPage() {
                     {data.content.map((schedule) => (
                       <tr key={schedule.scheduleId}>
                         <td>{schedule.scheduleId}</td>
-                        <td>{schedule.facilityId}</td>
+                        <td>
+                          <div className="table-primary">
+                            <strong>{facilityLabelById.get(schedule.facilityId) ?? `Facility #${schedule.facilityId}`}</strong>
+                            <span>#{schedule.facilityId}</span>
+                          </div>
+                        </td>
                         <td>{schedule.date}</td>
-                        <td>{schedule.timeSlot.slice(0, 5)}</td>
+                        <td>
+                          <span className="status-badge status-pending">{schedule.timeSlot.slice(0, 5)}</span>
+                        </td>
                         <td>
                           <div className="row-actions">
-                            <button type="button" onClick={() => void remove(schedule)}>Delete</button>
+                            <button type="button" onClick={() => void remove(schedule)} disabled={saving}>
+                              {saving ? 'Working...' : 'Delete'}
+                            </button>
                           </div>
                         </td>
                       </tr>
@@ -257,6 +301,7 @@ export default function SchedulesPage() {
           <aside className="editor-card">
             <p className="eyebrow">Create schedule</p>
             <h3>New schedule</h3>
+            <p className="field-hint">Schedules are created per facility, date and time slot. There is no edit flow in the current backend.</p>
 
             <div className="form-grid">
               <label>
@@ -272,6 +317,7 @@ export default function SchedulesPage() {
                     </option>
                   ))}
                 </select>
+                <span className="field-hint">Used for both creation and list filtering.</span>
               </label>
 
               <label>
@@ -281,6 +327,7 @@ export default function SchedulesPage() {
                   value={form.date}
                   onChange={(event) => setForm((current) => ({ ...current, date: event.target.value }))}
                 />
+                <span className="field-hint">Pick the day the slot belongs to.</span>
               </label>
 
               <label>
@@ -290,6 +337,7 @@ export default function SchedulesPage() {
                   value={form.timeSlot}
                   onChange={(event) => setForm((current) => ({ ...current, timeSlot: event.target.value }))}
                 />
+                <span className="field-hint">Stored as a full time value in the backend.</span>
               </label>
             </div>
 

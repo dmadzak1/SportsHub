@@ -82,6 +82,10 @@ export default function FacilitiesPage() {
   const totalPages = data?.totalPages ?? 0;
 
   const resetForm = () => setForm(emptyForm);
+  const clearSearch = () => {
+    setPage(0);
+    setSearch('');
+  };
 
   const beginEdit = (facility: FacilityDto) => {
     setForm({
@@ -147,23 +151,54 @@ export default function FacilitiesPage() {
   return (
     <div className="page-stack">
       <section className="panel">
-        <div className="toolbar">
-          <div>
-            <p className="eyebrow">Facility service</p>
-            <h2>Facilities</h2>
+        <header className="page-header">
+          <div className="page-header-row">
+            <div className="page-title">
+              <p className="eyebrow">Facility service</p>
+              <h2>Facilities</h2>
+              <p>Manage venue inventory, search by name and keep facility records synchronized with the backend.</p>
+            </div>
+
+            <div className="page-actions">
+              <input
+                className="search-input"
+                type="search"
+                placeholder="Search by name"
+                value={search}
+                onChange={(event) => {
+                  setPage(0);
+                  setSearch(event.target.value);
+                }}
+              />
+              <button type="button" className="secondary-button" onClick={clearSearch} disabled={!search}>
+                Reset search
+              </button>
+            </div>
           </div>
 
-          <input
-            className="search-input"
-            type="search"
-            placeholder="Search by name"
-            value={search}
-            onChange={(event) => {
-              setPage(0);
-              setSearch(event.target.value);
-            }}
-          />
-        </div>
+          <div className="metric-grid">
+            <article className="metric-card">
+              <span className="metric-label">Loaded facilities</span>
+              <strong className="metric-value">{data?.totalElements ?? 0}</strong>
+              <span className="metric-copy">Current result set from the gateway.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">View mode</span>
+              <strong className="metric-value">{search ? 'Search' : 'Paged'}</strong>
+              <span className="metric-copy">Filtering pauses pagination.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Editable</span>
+              <strong className="metric-value">Yes</strong>
+              <span className="metric-copy">Create, update and delete supported.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Role scope</span>
+              <strong className="metric-value">Admin/Manager</strong>
+              <span className="metric-copy">Protected by route guards and gateway rules.</span>
+            </article>
+          </div>
+        </header>
 
         {loading ? <p className="muted">Loading facilities...</p> : null}
         {error ? <p className="error-banner">{error}</p> : null}
@@ -185,8 +220,15 @@ export default function FacilitiesPage() {
                     {data.content.map((facility) => (
                       <tr key={facility.facilityId}>
                         <td>{facility.facilityId}</td>
-                        <td>{facility.name}</td>
-                        <td>{facility.type}</td>
+                        <td>
+                          <div className="table-primary">
+                            <strong>{facility.name}</strong>
+                            <span>Facility #{facility.facilityId}</span>
+                          </div>
+                        </td>
+                        <td>
+                          <span className="status-badge status-confirmed">{facility.type}</span>
+                        </td>
                         <td>
                           <div className="row-actions">
                             <button type="button" onClick={() => beginEdit(facility)}>Edit</button>
@@ -230,6 +272,7 @@ export default function FacilitiesPage() {
           <aside className="editor-card">
             <p className="eyebrow">{form.facilityId ? 'Edit facility' : 'Create facility'}</p>
             <h3>{form.facilityId ? `Facility #${form.facilityId}` : 'New facility'}</h3>
+            <p className="field-hint">Name and type are the only editable fields exposed by the current backend contract.</p>
 
             <div className="form-grid">
               <label>
@@ -239,6 +282,7 @@ export default function FacilitiesPage() {
                   value={form.name}
                   onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
                 />
+                <span className="field-hint">Use a short, recognizable venue name.</span>
               </label>
 
               <label>
@@ -248,6 +292,7 @@ export default function FacilitiesPage() {
                   value={form.type}
                   onChange={(event) => setForm((current) => ({ ...current, type: event.target.value }))}
                 />
+                <span className="field-hint">Examples: court, hall, field, gym.</span>
               </label>
             </div>
 

@@ -90,6 +90,12 @@ export default function PackagesPage() {
   const totalPages = data?.totalPages ?? 0;
 
   const resetForm = () => setForm(emptyForm);
+  const clearFilters = () => {
+    setPage(0);
+    setSearch('');
+    setMinPrice('');
+    setMaxPrice('');
+  };
 
   const beginEdit = (pkg: PackageDto) => {
     setForm({
@@ -161,49 +167,78 @@ export default function PackagesPage() {
   return (
     <div className="page-stack">
       <section className="panel">
-        <div className="toolbar">
-          <div>
-            <p className="eyebrow">Promotion service</p>
-            <h2>Packages</h2>
+        <header className="page-header">
+          <div className="page-header-row">
+            <div className="page-title">
+              <p className="eyebrow">Promotion service</p>
+              <h2>Packages</h2>
+              <p>Browse pricing plans, filter by name or price range, and manage package records from one screen.</p>
+            </div>
+
+            <div className="page-actions">
+              <input
+                className="search-input"
+                type="search"
+                placeholder="Search by name"
+                value={search}
+                onChange={(event) => {
+                  setPage(0);
+                  setSearch(event.target.value);
+                  setMinPrice('');
+                  setMaxPrice('');
+                }}
+              />
+              <input
+                className="search-input small"
+                type="number"
+                placeholder="Min price"
+                value={minPrice}
+                onChange={(event) => {
+                  setPage(0);
+                  setMinPrice(event.target.value);
+                  setSearch('');
+                }}
+              />
+              <input
+                className="search-input small"
+                type="number"
+                placeholder="Max price"
+                value={maxPrice}
+                onChange={(event) => {
+                  setPage(0);
+                  setMaxPrice(event.target.value);
+                  setSearch('');
+                }}
+              />
+              <button type="button" className="secondary-button" onClick={clearFilters} disabled={!search && !minPrice && !maxPrice}>
+                Reset filters
+              </button>
+            </div>
           </div>
 
-          <div className="toolbar-filters">
-            <input
-              className="search-input"
-              type="search"
-              placeholder="Search by name"
-              value={search}
-              onChange={(event) => {
-                setPage(0);
-                setSearch(event.target.value);
-                setMinPrice('');
-                setMaxPrice('');
-              }}
-            />
-            <input
-              className="search-input small"
-              type="number"
-              placeholder="Min price"
-              value={minPrice}
-              onChange={(event) => {
-                setPage(0);
-                setMinPrice(event.target.value);
-                setSearch('');
-              }}
-            />
-            <input
-              className="search-input small"
-              type="number"
-              placeholder="Max price"
-              value={maxPrice}
-              onChange={(event) => {
-                setPage(0);
-                setMaxPrice(event.target.value);
-                setSearch('');
-              }}
-            />
+          <div className="metric-grid">
+            <article className="metric-card">
+              <span className="metric-label">Loaded packages</span>
+              <strong className="metric-value">{data?.totalElements ?? 0}</strong>
+              <span className="metric-copy">Current package catalog from the gateway.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Filter mode</span>
+              <strong className="metric-value">{search ? 'Name' : minPrice || maxPrice ? 'Price' : 'Paged'}</strong>
+              <span className="metric-copy">Only one filter family is active at a time.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Editable</span>
+              <strong className="metric-value">Yes</strong>
+              <span className="metric-copy">Create, update and delete supported.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Sort</span>
+              <strong className="metric-value">Price</strong>
+              <span className="metric-copy">Default ordering is ascending by price.</span>
+            </article>
           </div>
-        </div>
+        </header>
 
         {loading ? <p className="muted">Loading packages...</p> : null}
         {error ? <p className="error-banner">{error}</p> : null}
@@ -225,8 +260,15 @@ export default function PackagesPage() {
                     {data.content.map((pkg) => (
                       <tr key={pkg.packageId}>
                         <td>{pkg.packageId}</td>
-                        <td>{pkg.name}</td>
-                        <td>{pkg.price.toFixed(2)}</td>
+                        <td>
+                          <div className="table-primary">
+                            <strong>{pkg.name}</strong>
+                            <span>Package #{pkg.packageId}</span>
+                          </div>
+                        </td>
+                        <td>
+                          <span className="status-badge status-pending">${pkg.price.toFixed(2)}</span>
+                        </td>
                         <td>
                           <div className="row-actions">
                             <button type="button" onClick={() => beginEdit(pkg)}>Edit</button>
@@ -270,6 +312,7 @@ export default function PackagesPage() {
           <aside className="editor-card">
             <p className="eyebrow">{form.packageId ? 'Edit package' : 'Create package'}</p>
             <h3>{form.packageId ? `Package #${form.packageId}` : 'New package'}</h3>
+            <p className="field-hint">Packages are used by the promotion service and are searchable by name or price range.</p>
 
             <div className="form-grid">
               <label>
@@ -279,6 +322,7 @@ export default function PackagesPage() {
                   value={form.name}
                   onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
                 />
+                <span className="field-hint">Use a descriptive package name.</span>
               </label>
 
               <label>
@@ -290,6 +334,7 @@ export default function PackagesPage() {
                   value={form.price}
                   onChange={(event) => setForm((current) => ({ ...current, price: event.target.value }))}
                 />
+                <span className="field-hint">Enter price in convertible format, e.g. 49.99.</span>
               </label>
             </div>
 

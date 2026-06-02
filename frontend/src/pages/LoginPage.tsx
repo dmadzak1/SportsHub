@@ -38,42 +38,51 @@ export default function LoginPage() {
   return (
     <div className="login-screen">
       <div className="login-card">
-        <p className="eyebrow">Secure access</p>
-        <h1>Sign in to SportsHub</h1>
-        <p>
-          Authenticate against the gateway. The returned JWT will power the
-          protected SPA routes.
-        </p>
+        <section className="login-hero">
+          <div>
+            <p className="eyebrow">Secure access</p>
+            <h1>Sign in to SportsHub</h1>
+            <p>Authenticate through the gateway. The JWT session unlocks protected SPA routes and role-based navigation.</p>
+          </div>
 
-        <form className="login-form" onSubmit={onSubmit}>
-          <label>
-            Email
-            <input
-              type="email"
-              value={form.email}
-              onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-              autoComplete="email"
-              required
-            />
-          </label>
+          <ul className="login-points">
+            <li>Single gateway entrypoint for all services.</li>
+            <li>Frontend keeps the presentation layer fully client-side.</li>
+            <li>Role-aware access controls remain enforced by the backend.</li>
+          </ul>
+        </section>
 
-          <label>
-            Password
-            <input
-              type="password"
-              value={form.password}
-              onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
-              autoComplete="current-password"
-              required
-            />
-          </label>
+        <section className="login-form-panel">
+          <form className="login-form" onSubmit={onSubmit}>
+            <label>
+              Email
+              <input
+                type="email"
+                value={form.email}
+                onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
+                autoComplete="email"
+                required
+              />
+            </label>
 
-          {error ? <p className="error-banner">{error}</p> : null}
+            <label>
+              Password
+              <input
+                type="password"
+                value={form.password}
+                onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
+                autoComplete="current-password"
+                required
+              />
+            </label>
 
-          <button type="submit" disabled={submitting}>
-            {submitting ? 'Signing in...' : 'Login'}
-          </button>
-        </form>
+            {error ? <p className="error-banner">{error}</p> : null}
+
+            <button type="submit" disabled={submitting}>
+              {submitting ? 'Signing in...' : 'Login'}
+            </button>
+          </form>
+        </section>
       </div>
     </div>
   );

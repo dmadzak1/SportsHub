@@ -39,11 +39,42 @@ export default function PromotionsPage() {
   return (
     <div className="page-stack">
       <section className="panel">
-        <p className="eyebrow">Promotion service</p>
-        <h2>Active promotions</h2>
+        <header className="page-header">
+          <div className="page-header-row">
+            <div className="page-title">
+              <p className="eyebrow">Promotion service</p>
+              <h2>Active promotions</h2>
+              <p>Read-only view of currently active promotion records exposed by the promotion service.</p>
+            </div>
+          </div>
+
+          <div className="metric-grid">
+            <article className="metric-card">
+              <span className="metric-label">Active promotions</span>
+              <strong className="metric-value">{data.length}</strong>
+              <span className="metric-copy">Direct from `/promotion/promotions/active`.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Mode</span>
+              <strong className="metric-value">Read only</strong>
+              <span className="metric-copy">This screen intentionally avoids write actions.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Audience</span>
+              <strong className="metric-value">All roles</strong>
+              <span className="metric-copy">Accessible to authenticated users.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Format</span>
+              <strong className="metric-value">Table</strong>
+              <span className="metric-copy">Flat listing with promotion metadata.</span>
+            </article>
+          </div>
+        </header>
+
         {loading ? <p className="muted">Loading promotions...</p> : null}
         {error ? <p className="error-banner">{error}</p> : null}
-        {!loading && !error && data.length === 0 ? <p className="muted">No active promotions.</p> : null}
+        {!loading && !error && data.length === 0 ? <div className="empty-state">No active promotions.</div> : null}
 
         {data.length > 0 ? (
           <div className="table-wrap">
@@ -60,8 +91,15 @@ export default function PromotionsPage() {
                 {data.map((promotion) => (
                   <tr key={promotion.promotionId}>
                     <td>{promotion.promotionId}</td>
-                    <td>{promotion.packageId}</td>
-                    <td>{promotion.discount}%</td>
+                    <td>
+                      <div className="table-primary">
+                        <strong>Package #{promotion.packageId}</strong>
+                        <span>Linked promotion target</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span className="status-badge status-pending">{promotion.discount}%</span>
+                    </td>
                     <td>{promotion.validUntil ?? 'n/a'}</td>
                   </tr>
                 ))}

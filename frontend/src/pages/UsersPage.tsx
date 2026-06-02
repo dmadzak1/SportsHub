@@ -111,6 +111,10 @@ export default function UsersPage() {
   const roleLabelById = new Map(roles.map((role) => [role.roleId, role.roleName]));
 
   const resetForm = () => setForm(emptyForm);
+  const clearSearch = () => {
+    setPage(0);
+    setSearch('');
+  };
 
   const beginEdit = (user: UserDto) => {
     setForm({
@@ -178,23 +182,54 @@ export default function UsersPage() {
   return (
     <div className="page-stack">
       <section className="panel">
-        <div className="toolbar">
-          <div>
-            <p className="eyebrow">User service</p>
-            <h2>Users</h2>
+        <header className="page-header">
+          <div className="page-header-row">
+            <div className="page-title">
+              <p className="eyebrow">User service</p>
+              <h2>Users</h2>
+              <p>Admin-only directory with search, create, update and delete actions routed through the gateway.</p>
+            </div>
+
+            <div className="page-actions">
+              <input
+                className="search-input"
+                type="search"
+                placeholder="Search by email"
+                value={search}
+                onChange={(event) => {
+                  setPage(0);
+                  setSearch(event.target.value);
+                }}
+              />
+              <button type="button" className="secondary-button" onClick={clearSearch} disabled={!search}>
+                Reset search
+              </button>
+            </div>
           </div>
 
-          <input
-            className="search-input"
-            type="search"
-            placeholder="Search by email"
-            value={search}
-            onChange={(event) => {
-              setPage(0);
-              setSearch(event.target.value);
-            }}
-          />
-        </div>
+          <div className="metric-grid">
+            <article className="metric-card">
+              <span className="metric-label">Loaded users</span>
+              <strong className="metric-value">{data?.totalElements ?? 0}</strong>
+              <span className="metric-copy">Current view from the user service.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Roles available</span>
+              <strong className="metric-value">{roles.length}</strong>
+              <span className="metric-copy">Fetched from `/user/roles`.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Mode</span>
+              <strong className="metric-value">{search ? 'Search' : 'Paged'}</strong>
+              <span className="metric-copy">Pagination pauses while filtering.</span>
+            </article>
+            <article className="metric-card">
+              <span className="metric-label">Gateway</span>
+              <strong className="metric-value">Admin</strong>
+              <span className="metric-copy">Only ADMIN can access this route.</span>
+            </article>
+          </div>
+        </header>
 
         {loading ? <p className="muted">Loading users...</p> : null}
         {error ? <p className="error-banner">{error}</p> : null}
@@ -216,8 +251,17 @@ export default function UsersPage() {
                     {data.content.map((user) => (
                       <tr key={user.userId}>
                         <td>{user.userId}</td>
-                        <td>{user.email}</td>
-                        <td>{user.roleId ? roleLabelById.get(user.roleId) ?? user.roleId : 'n/a'}</td>
+                        <td>
+                          <div className="table-primary">
+                            <strong>{user.email}</strong>
+                            <span>{user.password ? 'Password stored in backend' : 'No password value'}</span>
+                          </div>
+                        </td>
+                        <td>
+                          <span className={`status-badge ${user.roleId ? 'status-confirmed' : 'status-unknown'}`}>
+                            {user.roleId ? roleLabelById.get(user.roleId) ?? `Role #${user.roleId}` : 'n/a'}
+                          </span>
+                        </td>
                         <td>
                           <div className="row-actions">
                             <button type="button" onClick={() => beginEdit(user)}>Edit</button>
@@ -259,8 +303,9 @@ export default function UsersPage() {
           </div>
 
           <aside className="editor-card">
-            <p className="eyebrow">{form.userId ? 'Edit user' : 'Create user'}</p>
-            <h3>{form.userId ? `User #${form.userId}` : 'New user'}</h3>
+              <p className="eyebrow">{form.userId ? 'Edit user' : 'Create user'}</p>
+              <h3>{form.userId ? `User #${form.userId}` : 'New user'}</h3>
+              <p className="field-hint">The backend stores hashed passwords, but this form accepts a new raw password value for encoding on save.</p>
 
             <div className="form-grid">
               <label>
@@ -275,10 +320,11 @@ export default function UsersPage() {
               <label>
                 Password
                 <input
-                  type="text"
+                  type="password"
                   value={form.password}
                   onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
                 />
+                <span className="field-hint">Use a new raw password; the service will hash it on write.</span>
               </label>
 
               <label>
@@ -294,6 +340,7 @@ export default function UsersPage() {
                     </option>
                   ))}
                 </select>
+                <span className="field-hint">Role determines route visibility across the app.</span>
               </label>
             </div>
 

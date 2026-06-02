@@ -72,23 +72,47 @@ export default function App() {
         <Route
           index
           element={
-            <section className="panel">
-              <header className="hero hero-inline">
-                <div>
-                  <p className="eyebrow">Microservice SPA</p>
-                  <h1>Dashboard</h1>
-                  <p>Central SPA shell for authenticated access to users, facilities, promotions and analytics.</p>
+            <section className="page-stack">
+              <header className="page-header">
+                <div className="page-header-row">
+                  <div className="page-title">
+                    <p className="eyebrow">Microservice SPA</p>
+                    <h1>Dashboard</h1>
+                    <p>Central control surface for authenticated access to users, facilities, promotions, scheduling and analytics.</p>
+                  </div>
+                  <div className="page-actions">
+                    <span className="status-badge status-confirmed">JWT protected</span>
+                    <span className="status-badge status-pending">Gateway routing</span>
+                  </div>
                 </div>
-                <div className="hero-card">
-                  <span>Frontend mode</span>
-                  <strong>TypeScript + React</strong>
-                  <small>Prepared for JWT, role guards and paged API calls.</small>
+
+                <div className="metric-grid">
+                  <article className="metric-card">
+                    <span className="metric-label">Backend entrypoint</span>
+                    <strong className="metric-value">8090</strong>
+                    <span className="metric-copy">All requests go through the API gateway.</span>
+                  </article>
+                  <article className="metric-card">
+                    <span className="metric-label">Auth mode</span>
+                    <strong className="metric-value">JWT</strong>
+                    <span className="metric-copy">Role-aware routes and bearer tokens.</span>
+                  </article>
+                  <article className="metric-card">
+                    <span className="metric-label">Presentation layer</span>
+                    <strong className="metric-value">SPA</strong>
+                    <span className="metric-copy">Frontend owns state and page transitions.</span>
+                  </article>
+                  <article className="metric-card">
+                    <span className="metric-label">API contract</span>
+                    <strong className="metric-value">JSON</strong>
+                    <span className="metric-copy">Paged reads, filters and CRUD actions.</span>
+                  </article>
                 </div>
               </header>
 
               <div className="grid">
                 <section className="panel">
-                  <h2>What this frontend will cover</h2>
+                  <h2>What this frontend covers</h2>
                   <ul className="stack">
                     <li>JWT login against `api/user/auth/login`.</li>
                     <li>Role-aware navigation and protected routes.</li>
@@ -100,7 +124,7 @@ export default function App() {
                   <ul className="stack">
                     <li>All traffic goes through `http://localhost:8090/api`.</li>
                     <li>Frontend owns presentation and state.</li>
-                    <li>Backend only returns JSON DTOs and auth responses.</li>
+                    <li>Backend returns DTOs and auth responses only.</li>
                   </ul>
                 </section>
               </div>
