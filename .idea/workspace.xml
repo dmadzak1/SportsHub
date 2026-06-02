@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment="JWT Fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/_metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/auth/RequireAuth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/auth/RequireAuth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/FacilitiesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/FacilitiesPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UsersPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UsersPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/java/com/example/user/DataLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,61 +56,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.4780818830110598" />
-      <entry key="MS500" value="3.499242949223335" />
-      <entry key="S2" value="10.920368856217841" />
-      <entry key="S5" value="24.824496139043813" />
-      <entry key="S10" value="44.11311700747617" />
-      <entry key="S30" value="81.37477257556607" />
-      <entry key="S60" value="103.62021012498364" />
-      <entry key="M2" value="133.56709055976745" />
-      <entry key="M5" value="214.45293468860498" />
-      <entry key="M10" value="361.2159912601576" />
-      <entry key="M15" value="489.35511513287946" />
-      <entry key="M30" value="727.3026303806349" />
-      <entry key="H1" value="920.757094759082" />
-      <entry key="H2" value="1046.0283735757475" />
-      <entry key="H4" value="1117.6070637566609" />
-      <entry key="D1" value="1182.4311774149576" />
-      <entry key="W1" value="1194.0488553006237" />
+      <entry key="MS100" value="1.2838536762101613" />
+      <entry key="MS500" value="4.288819665790188" />
+      <entry key="S2" value="13.598137051684098" />
+      <entry key="S5" value="27.22558599064119" />
+      <entry key="S10" value="43.99055228325602" />
+      <entry key="S30" value="77.44327042984389" />
+      <entry key="S60" value="96.63239441805312" />
+      <entry key="M2" value="120.54967290178384" />
+      <entry key="M5" value="201.2756153378145" />
+      <entry key="M10" value="353.4187983524443" />
+      <entry key="M15" value="502.287001238379" />
+      <entry key="M30" value="846.1870097958356" />
+      <entry key="H1" value="1197.2879511097437" />
+      <entry key="H2" value="1459.4457797024759" />
+      <entry key="H4" value="1621.4545167984406" />
+      <entry key="D1" value="1775.7849506389525" />
+      <entry key="W1" value="1804.2044408875531" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="3.953468630766823E-200" />
-      <entry key="S5" value="1.7329710945749192E-80" />
-      <entry key="S10" value="1.3164235999764317E-40" />
-      <entry key="S30" value="5.087040787824767E-14" />
-      <entry key="S60" value="2.2554469153196188E-7" />
-      <entry key="M2" value="4.749154572468226E-4" />
-      <entry key="M5" value="0.04684319639791015" />
-      <entry key="M10" value="0.21643289121090314" />
-      <entry key="M15" value="0.3604808297164352" />
-      <entry key="M30" value="0.6004005577249589" />
-      <entry key="H1" value="0.7748551850023033" />
-      <entry key="H2" value="0.8802585898486305" />
-      <entry key="H4" value="0.9382209706932623" />
-      <entry key="D1" value="0.9894279838999411" />
-      <entry key="W1" value="0.9984828239511132" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="1.5263790439910754E-182" />
+      <entry key="S10" value="1.2354671359413222E-91" />
+      <entry key="S30" value="4.980547264284102E-31" />
+      <entry key="S60" value="7.05729924566341E-16" />
+      <entry key="M2" value="2.656557781352242E-8" />
+      <entry key="M5" value="9.326693535600639E-4" />
+      <entry key="M10" value="0.030539635779754798" />
+      <entry key="M15" value="0.09770330066335998" />
+      <entry key="M30" value="0.31257527199598356" />
+      <entry key="H1" value="0.5590843156411925" />
+      <entry key="H2" value="0.7477194096993783" />
+      <entry key="H4" value="0.8647077018850573" />
+      <entry key="D1" value="0.9760638340101856" />
+      <entry key="W1" value="0.9965449409278375" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.4109461756715416" />
-      <entry key="MS500" value="3.467830688866919" />
-      <entry key="S2" value="10.895580048656516" />
-      <entry key="S5" value="24.802139877091903" />
-      <entry key="S10" value="44.09327791334043" />
-      <entry key="S30" value="81.36249920194562" />
-      <entry key="S60" value="103.61227035660167" />
-      <entry key="M2" value="133.561959161876" />
-      <entry key="M5" value="214.4954127187902" />
-      <entry key="M10" value="361.42841250515727" />
-      <entry key="M15" value="489.7118868350266" />
-      <entry key="M30" value="727.9002121411476" />
-      <entry key="H1" value="921.5301414369563" />
-      <entry key="H2" value="1046.9075965749455" />
-      <entry key="H4" value="1118.544729021711" />
-      <entry key="D1" value="1183.420507018285" />
-      <entry key="W1" value="1195.0473239220767" />
+      <entry key="MS100" value="1.2288937015102326" />
+      <entry key="MS500" value="4.250208139800714" />
+      <entry key="S2" value="13.568123973635913" />
+      <entry key="S5" value="27.201366603862102" />
+      <entry key="S10" value="43.97084968820552" />
+      <entry key="S30" value="77.43161762414596" />
+      <entry key="S60" value="96.62509076865904" />
+      <entry key="M2" value="120.54507695012545" />
+      <entry key="M5" value="201.27327123557663" />
+      <entry key="M10" value="353.446126291427" />
+      <entry key="M15" value="502.3814681403663" />
+      <entry key="M30" value="846.4966543954268" />
+      <entry key="H1" value="1197.8448813341345" />
+      <entry key="H2" value="1460.1921604989275" />
+      <entry key="H4" value="1622.318473567454" />
+      <entry key="D1" value="1776.7608762711661" />
+      <entry key="W1" value="1805.200965740911" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -197,14 +195,14 @@
               <entry key="DiscoveryServerApplication" value="STOPPED" />
               <entry key="FacilityServiceApplication" value="FAILED" />
               <entry key="PromotionApplication" value="FAILED" />
-              <entry key="UserApplication" value="FAILED" />
+              <entry key="UserApplication" value="STOPPED" />
             </map>
           </value>
         </entry>
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserApplication">
+  <component name="RunManager">
     <configuration name="java in analytics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="analytics" />
       <option name="TEST_OBJECT" value="directory" />
@@ -396,6 +394,12 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/frontend/vite.config.d.ts" />
+        <option value="$PROJECT_DIR$/frontend/vite.config.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
+import { Navigate, NavLink, Outlet, Route, Routes } from 'react-router-dom';
 import { useAuth } from './auth/AuthContext';
 import { RequireAuth, RequireRole } from './auth/RequireAuth';
 import LoginPage from './pages/LoginPage';
@@ -8,7 +8,7 @@ import AnalyticsPage from './pages/AnalyticsPage';
 import PromotionsPage from './pages/PromotionsPage';
 import UsersPage from './pages/UsersPage';
 
-function Shell({ title, description, children }: { title: string; description: string; children: ReactNode }) {
+function AppShell({ children }: { children: ReactNode }) {
   const { session, logout } = useAuth();
   const isAdmin = session?.role === 'ADMIN';
   const canViewAnalytics = session ? ['ADMIN', 'MANAGER', 'ANALYST'].includes(session.role) : false;
@@ -44,45 +44,8 @@ function Shell({ title, description, children }: { title: string; description: s
         </div>
       </aside>
 
-      <main className="content">
-        <header className="hero">
-          <div>
-            <p className="eyebrow">Microservice SPA</p>
-            <h1>{title}</h1>
-            <p>{description}</p>
-          </div>
-          <div className="hero-card">
-            <span>Frontend mode</span>
-            <strong>TypeScript + React</strong>
-            <small>Prepared for JWT, role guards and paged API calls.</small>
-          </div>
-        </header>
-
-        {children}
-      </main>
+      <main className="content">{children}</main>
     </div>
-  );
-}
-
-function Panel({ title, children }: { title: string; children: ReactNode }) {
-  return (
-    <section className="panel">
-      <h2>{title}</h2>
-      {children}
-    </section>
-  );
-}
-
-function PlaceholderPage({ name, detail }: { name: string; detail: string }) {
-  return (
-    <Shell title={name} description={detail}>
-      <Panel title="Initial scaffold">
-        <p>
-          This screen will become a live CRUD view backed by the gateway.
-          The current step is only the project bootstrap.
-        </p>
-      </Panel>
-    </Shell>
   );
 }
 
@@ -93,38 +56,56 @@ export default function App() {
         path="/"
         element={
           <RequireAuth>
-            <Shell
-              title="Dashboard"
-              description="Central SPA shell for authenticated access to users, facilities, promotions and analytics."
-            >
+            <AppShell>
+              <Outlet />
+            </AppShell>
+          </RequireAuth>
+        }
+      >
+        <Route
+          index
+          element={
+            <section className="panel">
+              <header className="hero hero-inline">
+                <div>
+                  <p className="eyebrow">Microservice SPA</p>
+                  <h1>Dashboard</h1>
+                  <p>Central SPA shell for authenticated access to users, facilities, promotions and analytics.</p>
+                </div>
+                <div className="hero-card">
+                  <span>Frontend mode</span>
+                  <strong>TypeScript + React</strong>
+                  <small>Prepared for JWT, role guards and paged API calls.</small>
+                </div>
+              </header>
+
               <div className="grid">
-                <Panel title="What this frontend will cover">
+                <section className="panel">
+                  <h2>What this frontend will cover</h2>
                   <ul className="stack">
                     <li>JWT login against `api/user/auth/login`.</li>
                     <li>Role-aware navigation and protected routes.</li>
                     <li>Paginated reads and partial fetches through the gateway.</li>
                   </ul>
-                </Panel>
-                <Panel title="Backend integration model">
+                </section>
+                <section className="panel">
+                  <h2>Backend integration model</h2>
                   <ul className="stack">
                     <li>All traffic goes through `http://localhost:8090/api`.</li>
                     <li>Frontend owns presentation and state.</li>
                     <li>Backend only returns JSON DTOs and auth responses.</li>
                   </ul>
-                </Panel>
+                </section>
               </div>
-            </Shell>
-          </RequireAuth>
-        }
-      />
-      <Route
-        path="/login"
-        element={<LoginPage />}
-      />
-      <Route path="/users" element={<RequireRole roles={['ADMIN']}><UsersPage /></RequireRole>} />
-      <Route path="/facilities" element={<RequireAuth><FacilitiesPage /></RequireAuth>} />
-      <Route path="/promotions" element={<RequireAuth><PromotionsPage /></RequireAuth>} />
-      <Route path="/analytics" element={<RequireRole roles={['ADMIN', 'MANAGER', 'ANALYST']}><AnalyticsPage /></RequireRole>} />
+            </section>
+          }
+        />
+        <Route path="users" element={<RequireRole roles={['ADMIN']}><UsersPage /></RequireRole>} />
+        <Route path="facilities" element={<RequireAuth><FacilitiesPage /></RequireAuth>} />
+        <Route path="promotions" element={<RequireAuth><PromotionsPage /></RequireAuth>} />
+        <Route path="analytics" element={<RequireRole roles={['ADMIN', 'MANAGER', 'ANALYST']}><AnalyticsPage /></RequireRole>} />
+      </Route>
+      <Route path="/login" element={<LoginPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
