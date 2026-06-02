@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment="JWT Fix" />
+    <list default="true" id="ee358f27-8052-427e-bd68-ecf710a54c03" name="Changes" comment="JWT Fix">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/analytics/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/analytics/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facility/facility/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/facility/facility/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/promotion/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/promotion/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user/user/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +56,65 @@
     <commands />
     <urls />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.023478392620942" />
+      <entry key="MS500" value="2.3942819671043587" />
+      <entry key="S2" value="5.021203728624408" />
+      <entry key="S5" value="6.781522517128453" />
+      <entry key="S10" value="10.173402570764273" />
+      <entry key="S30" value="24.790574485741576" />
+      <entry key="S60" value="39.371183771473945" />
+      <entry key="M2" value="77.19908861346737" />
+      <entry key="M5" value="228.09518177412588" />
+      <entry key="M10" value="390.14897085149994" />
+      <entry key="M15" value="478.1943761401433" />
+      <entry key="M30" value="595.8763177250248" />
+      <entry key="H1" value="670.3639671068906" />
+      <entry key="H2" value="712.6880388786907" />
+      <entry key="H4" value="735.3132250755799" />
+      <entry key="D1" value="754.975519459757" />
+      <entry key="W1" value="758.4231559760517" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="3.435193582717274E-78" />
+      <entry key="MS500" value="3.2150685944189057E-16" />
+      <entry key="S2" value="1.3390523647514025E-4" />
+      <entry key="S5" value="0.028230529522046865" />
+      <entry key="S10" value="0.1680194319775152" />
+      <entry key="S30" value="0.5518061088022883" />
+      <entry key="S60" value="0.7428365289902539" />
+      <entry key="M2" value="0.8618796487852888" />
+      <entry key="M5" value="0.9422771298193982" />
+      <entry key="M10" value="0.9707096011781274" />
+      <entry key="M15" value="0.9803764796125072" />
+      <entry key="M30" value="0.9901396263217161" />
+      <entry key="H1" value="0.9950575994995049" />
+      <entry key="H2" value="0.9975257387654236" />
+      <entry key="H4" value="0.9987621031884533" />
+      <entry key="D1" value="0.9997935773682992" />
+      <entry key="W1" value="0.999970508443487" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.1601080429631928" />
+      <entry key="MS500" value="2.0545538294439245" />
+      <entry key="S2" value="4.918261356098941" />
+      <entry key="S5" value="6.761860042074611" />
+      <entry key="S10" value="10.305438000377142" />
+      <entry key="S30" value="25.31838592682282" />
+      <entry key="S60" value="40.09840495286552" />
+      <entry key="M2" value="78.05078913037784" />
+      <entry key="M5" value="229.03041628019844" />
+      <entry key="M10" value="391.1145057364784" />
+      <entry key="M15" value="479.1706574638883" />
+      <entry key="M30" value="596.8639441524825" />
+      <entry key="H1" value="671.3576094801394" />
+      <entry key="H2" value="713.6848099191918" />
+      <entry key="H4" value="736.3115969432222" />
+      <entry key="D1" value="755.9752461030633" />
+      <entry key="W1" value="759.4231168746376" />
+    </decayedShown>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -61,46 +130,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.DiscoveryServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in analytics.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in facility-service (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in facility-service (2).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in promotion.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AnalyticsApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.DiscoveryServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.FacilityServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.PromotionApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UserApplication.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DiscoveryServerApplication.executor": "Run",
+    "JUnit.All in analytics.executor": "Run",
+    "JUnit.All in facility-service (1).executor": "Run",
+    "JUnit.All in facility-service (2).executor": "Run",
+    "JUnit.All in promotion.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.AnalyticsApplication.executor": "Run",
+    "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "Spring Boot.DiscoveryServerApplication.executor": "Run",
+    "Spring Boot.FacilityServiceApplication.executor": "Run",
+    "Spring Boot.PromotionApplication.executor": "Run",
+    "Spring Boot.UserApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "ml.llm.AcpAgentsConfigurable",
+    "ts.external.directory.path": "/snap/intellij-idea/68/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Eurobit\IdeaProjects\SportsHub" />
@@ -122,12 +192,12 @@
         <entry key="SpringBootApplicationConfigurationType">
           <value>
             <map>
-              <entry key="AnalyticsApplication" value="STOPPED" />
+              <entry key="AnalyticsApplication" value="FAILED" />
               <entry key="ApiGatewayApplication" value="STOPPED" />
               <entry key="DiscoveryServerApplication" value="STOPPED" />
-              <entry key="FacilityServiceApplication" value="STOPPED" />
-              <entry key="PromotionApplication" value="STOPPED" />
-              <entry key="UserApplication" value="STOPPED" />
+              <entry key="FacilityServiceApplication" value="FAILED" />
+              <entry key="PromotionApplication" value="FAILED" />
+              <entry key="UserApplication" value="FAILED" />
             </map>
           </value>
         </entry>
@@ -210,7 +280,7 @@
       </method>
     </configuration>
     <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="user" />
+      <module name="facility-service (2)" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.user.UserApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -237,6 +307,14 @@
         <item itemvalue="JUnit.java in analytics" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -338,5 +416,9 @@
     <MESSAGE value="Additional fix application.yml" />
     <MESSAGE value="JWT Fix" />
     <option name="LAST_COMMIT_MESSAGE" value="JWT Fix" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
